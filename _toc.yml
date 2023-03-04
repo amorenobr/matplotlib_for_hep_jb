@@ -4,6 +4,8 @@
 format: jb-book
 root: intro
 chapters:
-- file: physics-background
-- file: Higgs-search
-- file: notebooks
+- file: introduction
+- file: physics
+- file: higgs-search
+- file: mplhep
+- file: dimuonspectrum

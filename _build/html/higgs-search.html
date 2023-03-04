@@ -1,0 +1,1035 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Higgs Search &#8212; Matplotlib for HEP</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plotting with mplhep for HEP style plotting" href="mplhep.html" />
+    <link rel="prev" title="Physics Background" href="physics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/hsf_logo_angled.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Matplotlib for HEP</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Matplotlib for HEP
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="physics.html">
+   Physics Background
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Higgs Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mplhep.html">
+   Plotting with mplhep for HEP style plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dimuonspectrum.html">
+   Dimuon Spectrum
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/amorenobr/matplotlib_for_hep_jb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/amorenobr/matplotlib_for_hep_jb/issues/new?title=Issue%20on%20page%20%2Fhiggs-search.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/amorenobr/matplotlib_for_hep_jb/edit/main/docs/higgs-search.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/higgs-search.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#auto-show-in-jupyter-notebooks">
+   Auto-show in jupyter notebooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#samples">
+   Samples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uproot-tutorial">
+   Uproot tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution">
+   Solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selection-criteria">
+   Selection criteria
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Exercise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mc-samples">
+   MC samples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-samples">
+   Data samples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-vs-mc-plot">
+   Data vs. MC plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Exercise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Solution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-plot">
+     Final Plot
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Higgs Search</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#auto-show-in-jupyter-notebooks">
+   Auto-show in jupyter notebooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#samples">
+   Samples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uproot-tutorial">
+   Uproot tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution">
+   Solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selection-criteria">
+   Selection criteria
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Exercise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mc-samples">
+   MC samples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-samples">
+   Data samples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-vs-mc-plot">
+   Data vs. MC plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Exercise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Solution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-plot">
+     Final Plot
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="higgs-search">
+<h1>Higgs Search<a class="headerlink" href="#higgs-search" title="Permalink to this headline">#</a></h1>
+<p>In this episode, we will go through a first HEP analysis where you will be able to apply your knowledge of matplotlib and learn something new.</p>
+<p>As we mentioned before, the goal is to reveal the decay of the Standard Model Higgs boson to two Z bosons and subsequently to four leptons
+(<code class="docutils literal notranslate"><span class="pre">H-&gt;ZZ-&gt;llll</span></code>), this is called as a “golden channel”.</p>
+<p>For this tutorial, we will use the <a class="reference external" href="http://opendata.atlas.cern/samples-13tev/">ATLAS data</a> collected during 2016 at a center-of-mass energy of 13 TeV, equivalent to 10fb⁻¹ of integrated luminosity.
+Here, we will use the available 4 leptons final state samples for simulated samples (Monte Carlo “MC”) and data, that after a selection, we will reveal a narrow invariant mass peak at 125 GeV, the Higgs.</p>
+<p>First we need to import numpy and the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> module under the name <code class="docutils literal notranslate"><span class="pre">plt</span></code>, as usual:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>%matplotlib inline
+</pre></div>
+</div>
+<section id="auto-show-in-jupyter-notebooks">
+<h2>Auto-show in jupyter notebooks<a class="headerlink" href="#auto-show-in-jupyter-notebooks" title="Permalink to this headline">#</a></h2>
+<p>The jupyter backends (activated via <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>, <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>, or <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">widget</span></code>), call show() at the end of every cell by default. Thus, you usually don’t have to call it explicitly there.
+{: .callout}</p>
+</section>
+<section id="samples">
+<h2>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">#</a></h2>
+<p>In the following dictionary, we have classified the samples we will work on, starting with the “data” samples,
+followed by the “higgs” MC samples and at the end the “zz” and “others” MC background components.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">samples_dic</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;data_A&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;data_B&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;data_C&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;data_D&quot;</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;higgs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;mc&quot;</span><span class="p">,</span> <span class="s2">&quot;mc_345060.ggH125_ZZ4lep&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;mc&quot;</span><span class="p">,</span> <span class="s2">&quot;mc_344235.VBFH125_ZZ4lep&quot;</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;zz&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;mc&quot;</span><span class="p">,</span> <span class="s2">&quot;mc_363490.llll&quot;</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;mc&quot;</span><span class="p">,</span> <span class="s2">&quot;mc_361106.Zee&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;mc&quot;</span><span class="p">,</span> <span class="s2">&quot;mc_361107.Zmumu&quot;</span><span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We will use uproot to read the content of our samples that are in ROOT format.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">uproot</span>
+</pre></div>
+</div>
+<p>For each sample of the above <code class="docutils literal notranslate"><span class="pre">samples_dic</span></code>, we will return another dictionary that will contain all the “branches” or “variables””.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">processes</span> <span class="o">=</span> <span class="n">samples_dic</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="n">Tuples</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">processes</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">samples_dic</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+        <span class="c1"># Load the dataframes</span>
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Sample name</span>
+        <span class="n">samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+        <span class="n">DataUproot</span> <span class="o">=</span> <span class="n">uproot</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;./data-ep04-higgs-search/OpenData_Atlas_</span><span class="si">{</span><span class="n">sample</span><span class="si">}</span><span class="s2">.root&quot;</span>
+        <span class="p">)</span>
+        <span class="n">Tuples</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span> <span class="o">=</span> <span class="n">DataUproot</span><span class="p">[</span><span class="s2">&quot;myTree&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Let’s take a look to the “branches” stored in out data samples, taking “data_A” as example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">Tuples</span><span class="p">[</span><span class="s2">&quot;data_A&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;lep_n&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;goodlep_pt_2&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;trigM&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;m4l&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;weight&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;lep_charge&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;sum_good_lep&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;trigE&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;goodlep_pt_0&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;goodlep_pt_1&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;goodlep_sumtypes&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;lep_type&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;channelNumber&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;lep_pt&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;good_lep&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;XSection&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;lep_E&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;sum_lep_charge&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>Let’s access one of these “branches” and make a simple plot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">branches</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+    <span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">Tuples</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">arrays</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Using the pyplot <code class="docutils literal notranslate"><span class="pre">hist</span></code> function we can visualize the distribution the mass of the 4 leptons “m4l” for example for the “data_A” sample.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;First look at samples&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="s2">&quot;data_A&quot;</span><span class="p">][</span><span class="s2">&quot;m4l&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">array</span><span class="p">([</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">13.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">]),</span>
+ <span class="n">array</span><span class="p">([</span> <span class="mf">19.312525</span><span class="p">,</span>  <span class="mf">82.30848</span> <span class="p">,</span> <span class="mf">145.30444</span> <span class="p">,</span> <span class="mf">208.3004</span>  <span class="p">,</span> <span class="mf">271.29636</span> <span class="p">,</span>
+        <span class="mf">334.2923</span>  <span class="p">,</span> <span class="mf">397.28827</span> <span class="p">,</span> <span class="mf">460.2842</span>  <span class="p">,</span> <span class="mf">523.28015</span> <span class="p">,</span> <span class="mf">586.2761</span>  <span class="p">,</span>
+        <span class="mf">649.2721</span>  <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="o">&lt;</span><span class="n">BarContainer</span> <span class="nb">object</span> <span class="n">of</span> <span class="mi">10</span> <span class="n">artists</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p><img alt="m4lep_histogram__0" src="_images/m4lep_histogram_0.png" /></p>
+<p><strong>Tip:</strong> In the previous plot the numbers in the axis are very small, we can change the font size (and font family) for all the following plots, including in our code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update the matplotlib configuration parameters:</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s2">&quot;font.family&quot;</span><span class="p">:</span> <span class="s2">&quot;serif&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Note that this changes the global setting, but it can still be overwritten later.</p>
+<p>Let’s do the plot again to see the changes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;First look at samples&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="s2">&quot;data_A&quot;</span><span class="p">][</span><span class="s2">&quot;m4l&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">array</span><span class="p">([</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">13.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">]),</span>
+ <span class="n">array</span><span class="p">([</span> <span class="mf">19.312525</span><span class="p">,</span>  <span class="mf">82.30848</span> <span class="p">,</span> <span class="mf">145.30444</span> <span class="p">,</span> <span class="mf">208.3004</span>  <span class="p">,</span> <span class="mf">271.29636</span> <span class="p">,</span>
+        <span class="mf">334.2923</span>  <span class="p">,</span> <span class="mf">397.28827</span> <span class="p">,</span> <span class="mf">460.2842</span>  <span class="p">,</span> <span class="mf">523.28015</span> <span class="p">,</span> <span class="mf">586.2761</span>  <span class="p">,</span>
+        <span class="mf">649.2721</span>  <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="o">&lt;</span><span class="n">BarContainer</span> <span class="nb">object</span> <span class="n">of</span> <span class="mi">10</span> <span class="n">artists</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p><img alt="m4lep_histogram_1" src="_images/m4lep_histogram_1.png" /></p>
+</section>
+<section id="uproot-tutorial">
+<h2>Uproot tutorial<a class="headerlink" href="#uproot-tutorial" title="Permalink to this headline">#</a></h2>
+<p>If you want to learn more of the Uproot python Module you can take a look to the tutorial also given by the HEP software foundation in the following
+<a class="reference external" href="https://hsf-training.github.io/hsf-training-uproot-webpage/index.html">link.</a>
+{: .callout}</p>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
+<p>Make the histogram of the variable <code class="docutils literal notranslate"><span class="pre">m4l</span></code> for sample <code class="docutils literal notranslate"><span class="pre">mc_363490.llll</span></code>.</p>
+<p>In the range <code class="docutils literal notranslate"><span class="pre">[0,200]</span></code>.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">bins=50</span></code>.</p>
+<p>Include a legend “llll”.</p>
+<p>Include the axis labels “Events” and “m4l”, in the axis y and x, respectively.</p>
+</section>
+<section id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;First look to the samples&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="s2">&quot;mc_363490.llll&quot;</span><span class="p">][</span><span class="s2">&quot;m4l&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;zz&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;m4l&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Events&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="m4lep_histogram_2_0" src="_images/m4lep_histogram_2_0.png" />
+{: .solution}
+{: .challenge}</p>
+</section>
+<section id="selection-criteria">
+<h2>Selection criteria<a class="headerlink" href="#selection-criteria" title="Permalink to this headline">#</a></h2>
+<p>It is very important to include some selection criteria in our samples MC and data that we are analyzing.
+These selections are commonly know as “cuts”.
+With these cuts we are able to select only events of our interest, this is, we will have a subset of our original samples and the distribution are going to change after this cuts.
+This will help out to do some physics analysis and start to search for the physics process in which we are interested.
+In this case is the 4 lepton final state.</p>
+<p>To do this, we will select all events, from all the samples, that satisfy the following criteria:</p>
+<ul class="simple">
+<li><p>the leptons need to activate either the muon or electron trigger,</p></li>
+<li><p>number of leptons in the final state should be 4,</p></li>
+<li><p>the total net charge should be zero,</p></li>
+<li><p>the sum of the types (11:e, 13:mu) can be 44 (eeee), 52 (mumumumu) or 48 (eemumu),</p></li>
+<li><p>good leptons with high transverse momentum</p></li>
+</ul>
+<p>Let’s visualize some of these requirements. For now, let us continue working with the “data_A” sample.
+We can see how many good leptons we have in the event, by printing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">branches</span><span class="p">[</span><span class="s2">&quot;data_A&quot;</span><span class="p">][</span><span class="s2">&quot;good_lep&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Array</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">...</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;32 * var * int32&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>From the previous output, we can notice that not all events have 4 good leptons.
+Therefore, we can use the sum of the number of good leptons per event. This variable is stored as “sum_good_lep”.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">branches</span><span class="p">[</span><span class="s2">&quot;data_A&quot;</span><span class="p">][</span><span class="s2">&quot;sum_good_lep&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Array</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">...</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;32 * int32&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>We will keep the events with “sum_good_lep”==4 (this is the topology we are looking for).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">branches</span><span class="p">[</span><span class="s2">&quot;data_A&quot;</span><span class="p">][</span><span class="s2">&quot;sum_good_lep&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Array</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="o">...</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;32 * bool&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>We can save this array in a variable to use later in a more complicated combination of requirements using the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code> and <code class="docutils literal notranslate"><span class="pre">~</span></code> logical operators.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sum_leptons_test</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="s2">&quot;data_A&quot;</span><span class="p">][</span><span class="s2">&quot;sum_good_lep&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p>We certainly can visualize this information with Matplotlib making a histogram :).</p>
+<p>Finally, let’s save in a dictionary for all the samples the requirements mentioned above as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">selection_events</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+    <span class="n">trigger</span> <span class="o">=</span> <span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;trigM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;trigE&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">sum_leptons</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;sum_good_lep&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+    <span class="n">sum_charge</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;sum_lep_charge&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">sum_types_ee</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;goodlep_sumtypes&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">44</span>
+    <span class="n">sum_types_mm</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;goodlep_sumtypes&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">52</span>
+    <span class="n">sum_types_em</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;goodlep_sumtypes&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">48</span>
+    <span class="n">sum_types_goodlep</span> <span class="o">=</span> <span class="n">sum_types_ee</span> <span class="o">|</span> <span class="n">sum_types_mm</span> <span class="o">|</span> <span class="n">sum_types_em</span>
+    <span class="n">sum_lep_selection</span> <span class="o">=</span> <span class="n">sum_leptons</span> <span class="o">&amp;</span> <span class="n">sum_charge</span> <span class="o">&amp;</span> <span class="n">sum_types_goodlep</span>
+    <span class="c1"># Select good leptons with high transverse momentum</span>
+    <span class="n">pt_0_selection</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;goodlep_pt_0&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">25000</span>
+    <span class="n">pt_1_selection</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;goodlep_pt_1&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15000</span>
+    <span class="n">pt_2_selection</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s2">&quot;goodlep_pt_2&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10000</span>
+    <span class="n">high_pt_selection</span> <span class="o">=</span> <span class="n">pt_0_selection</span> <span class="o">&amp;</span> <span class="n">pt_1_selection</span> <span class="o">&amp;</span> <span class="n">pt_2_selection</span>
+    <span class="n">final_selection</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">trigger</span> <span class="o">&amp;</span> <span class="n">sum_types_goodlep</span> <span class="o">&amp;</span> <span class="n">sum_lep_selection</span> <span class="o">&amp;</span> <span class="n">high_pt_selection</span>
+    <span class="p">)</span>
+    <span class="n">selection_events</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">final_selection</span>
+</pre></div>
+</div>
+<p>Moreover, we can compare, by printing, the number of initial  and final events after the previous selection .</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">       Initial events:  </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s1">&#39;m4l&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_A</span>       <span class="n">Initial</span> <span class="n">events</span><span class="p">:</span>  <span class="mi">32</span>
+<span class="n">data_B</span>       <span class="n">Initial</span> <span class="n">events</span><span class="p">:</span>  <span class="mi">108</span>
+<span class="n">data_C</span>       <span class="n">Initial</span> <span class="n">events</span><span class="p">:</span>  <span class="mi">174</span>
+<span class="n">data_D</span>       <span class="n">Initial</span> <span class="n">events</span><span class="p">:</span>  <span class="mi">277</span>
+<span class="n">mc_345060</span><span class="o">.</span><span class="n">ggH125_ZZ4lep</span>       <span class="n">Initial</span> <span class="n">events</span><span class="p">:</span>  <span class="mi">163</span><span class="p">,</span><span class="mi">316</span>
+<span class="n">mc_344235</span><span class="o">.</span><span class="n">VBFH125_ZZ4lep</span>       <span class="n">Initial</span> <span class="n">events</span><span class="p">:</span>  <span class="mi">189</span><span class="p">,</span><span class="mi">542</span>
+<span class="n">mc_363490</span><span class="o">.</span><span class="n">llll</span>       <span class="n">Initial</span> <span class="n">events</span><span class="p">:</span>  <span class="mi">547</span><span class="p">,</span><span class="mi">603</span>
+<span class="n">mc_361106</span><span class="o">.</span><span class="n">Zee</span>       <span class="n">Initial</span> <span class="n">events</span><span class="p">:</span>  <span class="mi">244</span>
+<span class="n">mc_361107</span><span class="o">.</span><span class="n">Zmumu</span>       <span class="n">Initial</span> <span class="n">events</span><span class="p">:</span>  <span class="mi">148</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">       After selection:  </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s1">&#39;m4l&#39;</span><span class="p">][</span><span class="n">selection_events</span><span class="p">[</span><span class="n">s</span><span class="p">]])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_A</span>       <span class="n">After</span> <span class="n">selection</span><span class="p">:</span>  <span class="mi">18</span>
+<span class="n">data_B</span>       <span class="n">After</span> <span class="n">selection</span><span class="p">:</span>  <span class="mi">52</span>
+<span class="n">data_C</span>       <span class="n">After</span> <span class="n">selection</span><span class="p">:</span>  <span class="mi">93</span>
+<span class="n">data_D</span>       <span class="n">After</span> <span class="n">selection</span><span class="p">:</span>  <span class="mi">158</span>
+<span class="n">mc_345060</span><span class="o">.</span><span class="n">ggH125_ZZ4lep</span>       <span class="n">After</span> <span class="n">selection</span><span class="p">:</span>  <span class="mi">141</span><span class="p">,</span><span class="mi">559</span>
+<span class="n">mc_344235</span><span class="o">.</span><span class="n">VBFH125_ZZ4lep</span>       <span class="n">After</span> <span class="n">selection</span><span class="p">:</span>  <span class="mi">161</span><span class="p">,</span><span class="mi">087</span>
+<span class="n">mc_363490</span><span class="o">.</span><span class="n">llll</span>       <span class="n">After</span> <span class="n">selection</span><span class="p">:</span>  <span class="mi">454</span><span class="p">,</span><span class="mi">699</span>
+<span class="n">mc_361106</span><span class="o">.</span><span class="n">Zee</span>       <span class="n">After</span> <span class="n">selection</span><span class="p">:</span>  <span class="mi">27</span>
+<span class="n">mc_361107</span><span class="o">.</span><span class="n">Zmumu</span>       <span class="n">After</span> <span class="n">selection</span><span class="p">:</span>  <span class="mi">16</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>Notice that the background events are reduced meanwhile we try to keep most of the signal.</p>
+</section>
+<section id="id1">
+<h2>Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>Make a histogram of the variable “sum_good_lep” for the sample “data_A” or another sample.</p>
+<p>Try to represent in your histogram what are the events that we wanted to keep using lines, arrows or text in your plot.</p>
+</section>
+<section id="id2">
+<h2>Solution<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cut&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="s2">&quot;data_A&quot;</span><span class="p">][</span><span class="s2">&quot;sum_good_lep&quot;</span><span class="p">],</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data A&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;sum good lep&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Events&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="cut_histogram_3" src="_images/cut_histogram_3.png" />
+{: .solution}
+{: .challenge}</p>
+</section>
+<section id="mc-samples">
+<h2>MC samples<a class="headerlink" href="#mc-samples" title="Permalink to this headline">#</a></h2>
+<p>To make a plot with all the MC samples we will do a stack plot.
+We will merge the samples following the classification we introduced at the beginning, that is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mc_samples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">processes</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mc_samples</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;higgs&#39;</span><span class="p">,</span> <span class="s1">&#39;zz&#39;</span><span class="p">,</span> <span class="s1">&#39;other&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>Remember that our variable of interest is the mass of the 4 leptons (m4l),
+then, let’s append in <code class="docutils literal notranslate"><span class="pre">stack_mc_list_m4l</span></code> the values of this variable for the 3 merged samples corresponding to the processes above.</p>
+<p>On the other hand, a very important aspect of the MC samples is the weights,
+these weights include important information that modifies the MC samples to be more like real data,
+so we will save them in <code class="docutils literal notranslate"><span class="pre">stack_weights_list</span></code>.
+Notice that the weights should be of the same shape variable that we want to plot.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stack_mc_list_m4l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">stack_weights_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">mc_samples</span><span class="p">:</span>
+    <span class="n">list_sample_s</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">list_weight_s</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">samples_dic</span><span class="p">[</span><span class="n">s</span><span class="p">]:</span>
+        <span class="n">sample_s</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">mc_selection_values</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="n">sample_s</span><span class="p">][</span><span class="s2">&quot;m4l&quot;</span><span class="p">][</span><span class="n">selection_events</span><span class="p">[</span><span class="n">sample_s</span><span class="p">]]</span>
+        <span class="n">list_sample_s</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="n">mc_selection_values</span><span class="p">)</span>
+        <span class="n">mc_selection_weight</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="n">sample_s</span><span class="p">][</span><span class="s2">&quot;weight&quot;</span><span class="p">][</span><span class="n">selection_events</span><span class="p">[</span><span class="n">sample_s</span><span class="p">]]</span>
+        <span class="n">list_weight_s</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="n">mc_selection_weight</span><span class="p">)</span>
+    <span class="n">stack_mc_list_m4l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list_sample_s</span><span class="p">)</span>
+    <span class="n">stack_weights_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list_weight_s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can check the lengths, to see that everything is ok.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">stack_mc_list_m4l</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">stack_weights_list</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">302</span><span class="p">,</span><span class="mi">646</span> <span class="mi">302</span><span class="p">,</span><span class="mi">646</span>
+<span class="mi">454</span><span class="p">,</span><span class="mi">699</span> <span class="mi">454</span><span class="p">,</span><span class="mi">699</span>
+<span class="mi">43</span> <span class="mi">43</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>And then make a plot, actually, let’s make 2 plots, with matplotlib we can add sub-plots to the figure, then, we will be able to compare the MC distribution without and with weights.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var_name</span> <span class="o">=</span> <span class="s2">&quot;m4l&quot;</span>
+<span class="n">units</span> <span class="o">=</span> <span class="s2">&quot; [GeV]&quot;</span>
+<span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">170</span><span class="p">]]</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="mi">24</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_1</span><span class="p">,</span> <span class="n">ax_2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax_1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;MC samples without weights&quot;</span><span class="p">)</span>
+<span class="n">ax_1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">stack_mc_list_m4l</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">mc_samples</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+<span class="n">ax_1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Events&quot;</span><span class="p">)</span>
+<span class="n">ax_1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">var_name</span><span class="si">}{</span><span class="n">units</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax_1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax_2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;MC samples with weights&quot;</span><span class="p">)</span>
+<span class="n">ax_2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">stack_mc_list_m4l</span><span class="p">,</span>
+    <span class="nb">range</span><span class="o">=</span><span class="n">ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="n">mc_samples</span><span class="p">,</span>
+    <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">weights</span><span class="o">=</span><span class="n">stack_weights_list</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax_2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Events&quot;</span><span class="p">)</span>
+<span class="n">ax_2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">var_name</span><span class="si">}{</span><span class="n">units</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax_2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax_2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="MC_histogram_4" src="_images/MC_histogram_4.png" /></p>
+</section>
+<section id="data-samples">
+<h2>Data samples<a class="headerlink" href="#data-samples" title="Permalink to this headline">#</a></h2>
+<p>Let’s append in <code class="docutils literal notranslate"><span class="pre">stack_dara_list_m4l</span></code> the values of the m4l variable for all the data samples A,B,C and D.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stack_data_list_m4l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">samples_dic</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]:</span>
+    <span class="n">sample_d</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">data_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">sample_d</span><span class="p">][</span><span class="s2">&quot;m4l&quot;</span><span class="p">][</span><span class="n">selection_events</span><span class="p">[</span><span class="n">sample_d</span><span class="p">]])</span>
+    <span class="n">stack_data_list_m4l</span> <span class="o">+=</span> <span class="n">data_list</span>
+</pre></div>
+</div>
+<p>We can print the length of the list to check again that everything is fine.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">stack_data_list_m4l</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">321</span>
+</pre></div>
+</div>
+<p>{: .output}</p>
+<p>To make more easy the data vs. MC final plot, we can define the following helper function that makes a histogram of the data and calculates the poisson uncertainty in each bin.
+When we want to make a plot that includes uncertainties we need to use the <code class="docutils literal notranslate"><span class="pre">ax.errorbar</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">data_var</span><span class="p">,</span> <span class="n">range_ab</span><span class="p">,</span> <span class="n">bins_samples</span><span class="p">):</span>
+    <span class="n">data_hist</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">data_var</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">range_ab</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins_samples</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data_hist</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">bins</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">data_hist_errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">data_hist</span><span class="p">)</span>
+    <span class="n">bin_center</span> <span class="o">=</span> <span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">bin_center</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">data_hist</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">data_hist_errors</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;ko&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</section>
+<section id="data-vs-mc-plot">
+<h2>Data vs. MC plot<a class="headerlink" href="#data-vs-mc-plot" title="Permalink to this headline">#</a></h2>
+<p>Finally, we can include the MC and data in the same figure, and see if they are in agreement :).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plot_data</span><span class="p">(</span><span class="n">stack_data_list_m4l</span><span class="p">,</span> <span class="n">ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">stack_mc_list_m4l</span><span class="p">,</span>
+    <span class="nb">range</span><span class="o">=</span><span class="n">ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="n">mc_samples</span><span class="p">,</span>
+    <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">weights</span><span class="o">=</span><span class="n">stack_weights_list</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Events&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">var_name</span><span class="si">}{</span><span class="n">units</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="m4lep_histogram_5" src="_images/m4lep_histogram_5.png" /></p>
+</section>
+<section id="id3">
+<h2>Exercise<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>Modify a bit the previous code to include the ticks and text, in the text and axis labels use latex to achieve the final plot.</p>
+<p>{: .solution}
+{: .challenge}</p>
+</section>
+<section id="id4">
+<h2>Solution<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plot_data</span><span class="p">(</span><span class="n">stack_data_list_m4l</span><span class="p">,</span> <span class="n">ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">stack_mc_list_m4l</span><span class="p">,</span>
+    <span class="nb">range</span><span class="o">=</span><span class="n">ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="n">mc_samples</span><span class="p">,</span>
+    <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">weights</span><span class="o">=</span><span class="n">stack_weights_list</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Events&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$m^{H \rightarrow ZZ}_</span><span class="si">{4l}</span><span class="s2">$&quot;</span> <span class="o">+</span> <span class="n">units</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;ATLAS&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">93</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;Open Data&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\sqrt</span><span class="si">{s}</span><span class="s2">$&quot;</span> <span class="o">+</span> <span class="s2">&quot; = 13 TeV,&quot;</span> <span class="o">+</span> <span class="s2">&quot; $\int$Ldt = &quot;</span> <span class="o">+</span> <span class="s2">&quot; 10 fb&quot;</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;$^{-1}$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="final-plot">
+<h3>Final Plot<a class="headerlink" href="#final-plot" title="Permalink to this headline">#</a></h3>
+<p>You can see at 125 GeV the component corresponding at the Higgs boson.
+<img alt="m4lep_histogram_6" src="_images/m4lep_histogram_6.png" /></p>
+<p><strong>Bonus</strong>: If you are more curious about other HEP analysis tools, you can take a look at this same example developed with the ROOT framework <a class="reference external" href="https://root.cern.ch/doc/v622/df106__HiggsToFourLeptons_8py.html">here</a>.</p>
+<p>{% include <a class="reference external" href="http://links.md">links.md</a> %}</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="physics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Physics Background</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="mplhep.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Plotting with mplhep for HEP style plotting</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By HSF Training WG<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

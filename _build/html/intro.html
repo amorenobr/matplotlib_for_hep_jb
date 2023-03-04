@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Physics Background" href="physics-background.html" />
+    <link rel="next" title="Introduction" href="introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -114,18 +114,28 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="physics-background.html">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="physics.html">
    Physics Background
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Higgs-search.html">
+  <a class="reference internal" href="higgs-search.html">
    Higgs Search
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Content with notebooks
+  <a class="reference internal" href="mplhep.html">
+   Plotting with mplhep for HEP style plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dimuonspectrum.html">
+   Dimuon Spectrum
   </a>
  </li>
 </ul>
@@ -201,7 +211,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
+        <a href="https://github.com/amorenobr/matplotlib_for_hep_jb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -218,7 +228,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/amorenobr/matplotlib_for_hep_jb/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -230,6 +240,23 @@ title="Open an issue"
   <i class="fas fa-lightbulb"></i>
   </span>
 <span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/amorenobr/matplotlib_for_hep_jb/edit/main/docs/intro.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
 </a>
 
       </li>
@@ -309,16 +336,15 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="matplotlib-for-hep">
 <h1>Matplotlib for HEP<a class="headerlink" href="#matplotlib-for-hep" title="Permalink to this headline">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
+<p>This training module introduces matplotlib and creates plots commonly used in HEP. It also introduces mplhep, a plotting library designed specifically for HEP plots.</p>
+<p>This training module is part of the HSF Software Training Center, a series of training modules that serves HEP newcomers the software skills needed as they enter the field, and in parallel, instill best practices for writing software.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="physics-background.html">Physics Background</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Higgs-search.html">Higgs Search</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics.html">Physics Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="higgs-search.html">Higgs Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mplhep.html">Plotting with mplhep for HEP style plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dimuonspectrum.html">Dimuon Spectrum</a></li>
 </ul>
 </div>
 </section>
@@ -350,10 +376,10 @@ It does not go in-depth into any particular topic - check out <a class="referenc
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="physics-background.html" title="next page">
+    <a class='right-next' id="next-link" href="introduction.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Physics Background</p>
+        <p class="prev-next-title">Introduction</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -366,7 +392,7 @@ It does not go in-depth into any particular topic - check out <a class="referenc
   
     By HSF Training WG<br/>
   
-      &copy; Copyright 2022.<br/>
+      &copy; Copyright 2023.<br/>
 </p>
         </footer>
     </div>

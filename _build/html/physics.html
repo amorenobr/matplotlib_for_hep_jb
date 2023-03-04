@@ -1,0 +1,777 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Physics Background &#8212; Matplotlib for HEP</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Higgs Search" href="higgs-search.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/hsf_logo_angled.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Matplotlib for HEP</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Matplotlib for HEP
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Physics Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="higgs-search.html">
+   Higgs Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mplhep.html">
+   Plotting with mplhep for HEP style plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dimuonspectrum.html">
+   Dimuon Spectrum
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/amorenobr/matplotlib_for_hep_jb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/amorenobr/matplotlib_for_hep_jb/issues/new?title=Issue%20on%20page%20%2Fphysics.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/amorenobr/matplotlib_for_hep_jb/edit/main/docs/physics.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/physics.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-standard-model-of-particle-physics">
+   The Standard Model of Particle Physics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-standard-model-lagrangian">
+     The Standard Model Lagrangian
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fermion-masses">
+     Fermion Masses
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#higgs-production-mechanisms-at-hadron-colliders">
+   Higgs Production Mechanisms at Hadron Colliders
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#higgs-boson-decay-into-four-leptons">
+   Higgs boson decay into four leptons
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Physics Background</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-standard-model-of-particle-physics">
+   The Standard Model of Particle Physics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-standard-model-lagrangian">
+     The Standard Model Lagrangian
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fermion-masses">
+     Fermion Masses
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#higgs-production-mechanisms-at-hadron-colliders">
+   Higgs Production Mechanisms at Hadron Colliders
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#higgs-boson-decay-into-four-leptons">
+   Higgs boson decay into four leptons
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <!-- Mathjax Support -->
+<script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<section class="tex2jax_ignore mathjax_ignore" id="physics-background">
+<h1>Physics Background<a class="headerlink" href="#physics-background" title="Permalink to this headline">#</a></h1>
+<p>You can take a look at the mathematical structure of the Standard Model of Particle Physics in the next section, or go directly to the main Higgs production mechanisms at hadron colliders.</p>
+<blockquote>
+<div><p>{: .solution}</p>
+<blockquote>
+<div><p>{: .callout}</p>
+</div></blockquote>
+</div></blockquote>
+<section id="the-standard-model-of-particle-physics">
+<h2>The Standard Model of Particle Physics<a class="headerlink" href="#the-standard-model-of-particle-physics" title="Permalink to this headline">#</a></h2>
+<section id="the-standard-model-lagrangian">
+<h3>The Standard Model Lagrangian<a class="headerlink" href="#the-standard-model-lagrangian" title="Permalink to this headline">#</a></h3>
+<p>The SM is a quantum field theory that is based on the gauge symmetry $<span class="math notranslate nohighlight">\(SU(3)_{C}\times SU(2)_{L}\times U(1)_{Y}\)</span><span class="math notranslate nohighlight">\(.  This gauge group includes the symmetry group of the strong interactions, \)</span><span class="math notranslate nohighlight">\(SU(3)_{C}\)</span><span class="math notranslate nohighlight">\(, and the symmetry group of the electroweak (EW) interactions, \)</span><span class="math notranslate nohighlight">\(SU(2)_{L}\times U(1)_{Y}\)</span>$.</p>
+<p>The strong interaction part, quantum chromodynamics (QCD) is an SU(3) gauge theory described by the lagrangian density</p>
+<div class="math notranslate nohighlight">
+\[{\cal{L}}_{SU(3)}=-\frac{1}{4}G_{\mu\nu}^{a}G_{a}^{\mu\nu}+\sum_{r}\overline{q}_{r\alpha}iD_{\mu\beta}^{\alpha}\gamma^{\mu}q_{r}^{\beta}$$,
+&gt;&gt;
+&gt;&gt; where $$G_{\mu\nu}^{a}=\partial_{\mu}G_{\nu}^{a}-\partial_{\nu}G_{\mu}^{a}+g_{s}f^{abc}G_{\mu}^{b}G_{\nu}^{c}$$ is the field strength tensor for the gluon fields $$G_{\mu}^{a}$$, $$a=1,\dots,8$$, and the structure constants $$f^{abc}$$ $$(a,b,c=1,\dots,8)$$ are defined by $$[T^{a},T^{b}]=if^{abc}T_{c}$$.
+&gt;&gt;
+&gt;&gt; The second term in $${\cal{L}}_{SU(3)}$$ is the gauge covariant derivative for the quarks: $$q_{r}$$ is the $$r^{th}$$ quark flavor, $$\alpha$$,$$\beta=1,2,3$$ are color indices, and
+&gt;&gt;
+&gt;&gt; $$D_{\mu\beta}^{\alpha}=(D_{\mu})_{\alpha\beta}=\partial_{\mu}\delta_{\alpha\beta}-ig_{s}T_{a\alpha\beta}G_{\mu}^{a}$$.
+&gt;&gt;
+&gt;&gt; The EW theory is based on the $$SU(2)_{L}\times U(1)_{Y}$$ lagrangian density $${\cal{L}}_{SU(2)\times U(1)}={\cal{L}}_{fermions}+{\cal{L}}_{gauge}+{\cal{L}}_{Scalar}+{\cal{L}}_{Yuk}$$,
+&gt;&gt; where
+&gt;&gt;
+&gt;&gt; $${\cal{L}}_{fermions}=\overline{L}_{i}iD_{\mu}\gamma^{\mu}L_{i}+\overline{e}_{Ri}iD_{\mu}\gamma^{\mu}e_{Ri}+\overline{Q}_{i}iD_{\mu}\gamma^{\mu}Q_{i}+\overline{u}_{Ri}iD_{\mu}\gamma^{\mu}u_{Ri}+\overline{d}_{Ri}iD_{\mu}\gamma^{\mu}d_{Ri}$$,
+&gt;&gt;
+&gt;&gt; and where $$D_{\mu}=\partial_{\mu}-ig_{2}T_{a}W_{\mu}^{a}-ig_{1}\frac{Y_{q}}{2}B_{\mu}$$.
+&gt;&gt;
+&gt;&gt; The gauge part is
+&gt;&gt;
+&gt;&gt; $${\cal{L}}_{gauge}=-\frac{1}{4}W_{\mu\nu}^{a}W_{a}^{\mu\nu}-\frac{1}{4}B_{\mu\nu}B^{\mu\nu}$$,
+&gt;&gt;
+&gt;&gt; where $$W_{\mu\nu}^{a}=\partial_{\mu}W_{\nu}^{a}-\partial_{\nu}W_{\mu}^{a}+g_{2}\epsilon^{abc}W_{\mu}^{b}W_{\nu}^{c}$$ and $$B_{\mu\nu}=\partial_{\mu}B_{\nu}-\partial_{\nu}B_{\mu}$$ are the field strength tensors for the $$SU(2)$$ and $$U(1)$$ gauge fields, respectively.
+&gt;&gt;
+&gt;&gt; The scalar part of the lagrangian is
+&gt;&gt;
+&gt;&gt; $${\cal{L}}_{Scalar}=(D^{\mu}\Phi)^{\dagger}(D_{\mu}\Phi)-V(\Phi^{\dagger}\Phi)$$,
+&gt;&gt;
+&gt;&gt; where $$V(\Phi^{\dagger}\Phi)=\mu^{2}\Phi^{\dagger}\Phi+\lambda(\Phi^{\dagger}\Phi)^{2}$$.
+&gt;&gt;
+&gt;&gt; The Yukawa Lagrangian is
+&gt;&gt;
+&gt;&gt; $${\cal{L}_{Yuk}}=-\lambda_{e}\overline{L}\Phi e_{R}-\lambda_{d}\overline{Q}\Phi d_{R}-\lambda_{u}\overline{Q}\tilde\Phi u_{R}+h.c.$$.
+&gt;&gt;
+&gt;&gt; ### Spontaneous Symmetry Breaking and Mass Generation: The Higgs Mechanism in the SM
+&gt;&gt;
+&gt;&gt; Experimentally, the weak bosons are massive. We give mass to the gauge bosons through the Higgs Mechanism:  generate mass terms from the kinetic
+energy term of a scalar doublet field $${\Phi}$$ that undergoes spontaneous symmetry breaking.
+&gt;&gt;
+&gt;&gt; Introduce a complex $$SU(2)$$ doublet of scalar fields
+&gt;&gt;
+&gt;&gt; \]</div>
+<p>\Phi =
+\begin{pmatrix}
+\phi^{+}\
+\phi^{0}
+\end{pmatrix}, Y_{\Phi}=+1
+$$,</p>
+<p>in the scalar lagrangian</p>
+<div class="math notranslate nohighlight">
+\[
+&gt;&gt; {\cal{L}}_{Scalar}=(D^{\mu}\Phi)^{\dagger}(D_{\mu}\Phi)-V(\Phi^{\dagger}\Phi)
+$$,
+&gt;&gt;
+&gt;&gt; where
+&gt;&gt;
+&gt;&gt; \]</div>
+</section>
+<section id="fermion-masses">
+<h3>Fermion Masses<a class="headerlink" href="#fermion-masses" title="Permalink to this headline">#</a></h3>
+<p>We can use the same scalar field $<span class="math notranslate nohighlight">\(\Phi\)</span><span class="math notranslate nohighlight">\( to generate the fermion masses, with \)</span><span class="math notranslate nohighlight">\(Y=+1\)</span><span class="math notranslate nohighlight">\(, and the isodoublet \)</span><span class="math notranslate nohighlight">\(\tilde\Phi=i\tau_{2}\Phi^{\star}\)</span><span class="math notranslate nohighlight">\(, with \)</span><span class="math notranslate nohighlight">\(Y=-1\)</span><span class="math notranslate nohighlight">\(.  For any fermion generation, we introduce the \)</span><span class="math notranslate nohighlight">\(SU(2)_{L}\times U(1)_{Y}\)</span>$ invariant Yukawa lagrangian</p>
+<div class="math notranslate nohighlight">
+\[
+&gt;&gt; {\cal{L}}_{Yuk}=-\lambda_{e}\overline{L}\Phi e_{R}-\lambda_{d}\overline{Q}\Phi d_{R}-\lambda_{u}\overline{Q}\tilde\Phi u_{R}+h.c.
+&gt;&gt; $$,
+&gt;&gt;
+&gt;&gt; and repeat the same procedure as above.  Taking for instance only the electron, we get
+&gt;&gt;
+&gt;&gt; \]</div>
+<p>{\cal{L}}<em>{Yuk}=-\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+\overline{\nu}</em>{e} &amp; \overline{e}<em>{L}
+\end{pmatrix}
+\begin{pmatrix}
+0\
+\upsilon+H
+\end{pmatrix}e</em>{R}+…
+=-\frac{1}{\sqrt{2}}\lambda_{e}(\upsilon+H)\overline{e}<em>{L}e</em>{R}+…
+$$.</p>
+<p>The constant term in front of $<span class="math notranslate nohighlight">\(\overline{f}_{L}f_{R}\)</span>$ (and h.c.) is identified with the fermion mass</p>
+<div class="math notranslate nohighlight">
+\[
+&gt;&gt; m_{e}=\frac{\lambda_{e}\upsilon}{\sqrt{2}},m_{u}=\frac{\lambda_{u}\upsilon}{\sqrt{2}},m_{d}=\frac{\lambda_{d}\upsilon}{\sqrt{2}}
+&gt;&gt; $$.
+&gt;&gt;
+&gt;&gt; ### The Higgs Particle in the SM
+&gt;&gt;
+&gt;&gt; The kinetic part of the Higgs field, $$\frac{1}{2}(\partial_{\mu}{H})^{2}$$, comes from the term involving the covariant derivative $$(D_{\mu}\Phi)^{2}$$, while the mass and self-interaction parts, come from the scalar potential
+&gt;&gt;
+&gt;&gt; \]</div>
+<p>V(\Phi)={\mu^{2}}\Phi^{\dagger}\Phi+{\lambda}(\Phi^{\dagger}\Phi)^{2}$<span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(=\frac{\mu^{2}}{2}
+\begin{pmatrix}
+0 &amp; \upsilon+H
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+\upsilon+H
+\end{pmatrix}
++\frac{\lambda}{4}\bigg{|}
+\begin{pmatrix}
+0 &amp; \upsilon+H
+\end{pmatrix}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\begin{pmatrix}
+0\\
+\upsilon+H
+\end{pmatrix}
+\bigg{|}^{2}
+\)</span>$.</p>
+<p>Using the relation $<span class="math notranslate nohighlight">\(\upsilon^{2}=-\mu^{2}/\lambda\)</span>$, we get</p>
+<div class="math notranslate nohighlight">
+\[
+&gt;&gt; V=-\frac{1}{2}\lambda{\upsilon^{2}}(\upsilon+H)^{2}+\frac{1}{4}\lambda(\upsilon+H)^{4}
+&gt;&gt; $$.
+&gt;&gt;
+&gt;&gt; The lagrangian containing the Higgs field H is given by
+&gt;&gt;
+&gt;&gt; \]</div>
+<p>{\cal{L}}<em>{H}=\frac{1}{2}(\partial</em>{\mu}{H})(\partial^{\mu}{H})-V$$,</p>
+<div class="math notranslate nohighlight">
+\[{\cal{L}}_{H}=\frac{1}{2}(\partial^{\mu}{H})^{2}-\lambda{\upsilon^{2}}{H^{2}}-\lambda\upsilon {H^{3}}-\frac{\lambda}{4}{H^{4}}
+$$.
+&gt;&gt;
+&gt;&gt; From this Lagrangian, we have that the Higgs boson mass is given by
+&gt;&gt;
+&gt;&gt; \]</div>
+<p>m_{H}^{2}=2\lambda{\upsilon^{2}}=-2\mu^{2}
+$$,</p>
+<p>and the Feynman rules for the Higgs self-interaction vertices are given by</p>
+<div class="math notranslate nohighlight">
+\[
+&gt;&gt; g_{HHH}=(3!)i\lambda\upsilon=3i\frac{m_{H}^{2}}{\upsilon}, g_{HHHH}=(4!)i\frac{\lambda}{4}=3i\frac{m_{H}^{2}}{\upsilon^{2}}
+&gt;&gt; $$.
+&gt;&gt;
+&gt;&gt; As for the Higgs boson couplings to gauge bosons and fermions
+&gt;&gt;
+&gt;&gt; \]</div>
+<p>{\cal{L}}<em>{M</em>{V}}\sim M_{V}^{2}\bigg{(}1+\frac{H}{\upsilon}\bigg{)}^{2}$$,</p>
+<div class="math notranslate nohighlight">
+\[
+&gt;&gt; {\cal{L}}_{m_{f}}\sim -m_{f}\bigg{(}1+\frac{H}{\upsilon}\bigg{)}
+$$,
+&gt;&gt;
+&gt;&gt; we get
+&gt;&gt;
+&gt;&gt; \]</div>
+<p>g_{Hff}=i\frac{m_{f}}{\upsilon}, g_{HVV}=-2i\frac{M_{V}^{2}}{\upsilon}, g_{HHVV}=-2i\frac{M_{V}^{2}}{\upsilon^{2}}
+$$.</p>
+</section>
+</section>
+<p>{D_{\mu}=\partial_{\mu}-ig_{s}T_{a}G_{\mu}^{a}-ig_{2}T_{a}W^{a}<em>{\mu}-ig</em>{1}\frac{Y_{q}}{2}B_{\mu}}
+$$,</p>
+<blockquote>
+<div></div></blockquote>
+<p>and</p>
+<blockquote>
+<div><blockquote>
+<div><div class="math notranslate nohighlight">
+\[V(\Phi^{\dagger}\Phi)={\mu^{2}}\Phi^{\dagger}\Phi+{\lambda}(\Phi^{\dagger}\Phi)^{2}$$.
+&gt;&gt;
+&gt;&gt;For $$\mu^{2}&lt;0$$, the neutral component of $$\Phi$$ will develop a vev
+&gt;&gt;
+&gt;&gt; \]</div>
+<p>&lt; \Phi &gt;_{0}\equiv &lt;0|\Phi|0&gt;=$<span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\begin{pmatrix}
+0\\
+\frac{\upsilon}{\sqrt{2}}
+\end{pmatrix}
+\)</span>$,</p>
+<p>with
+$<span class="math notranslate nohighlight">\(\upsilon=\bigg{(}-\frac{\mu^{2}}{\lambda}\bigg{)}^{1/2}\)</span>$.</p>
+<p>Writing the field $<span class="math notranslate nohighlight">\(\Phi\)</span><span class="math notranslate nohighlight">\( in terms of four fields \)</span><span class="math notranslate nohighlight">\(\phi_{1,2,3}(x)\)</span><span class="math notranslate nohighlight">\( and \)</span><span class="math notranslate nohighlight">\(H(x)\)</span>$ at first order and expanding it around the minimum</p>
+<div class="math notranslate nohighlight">
+\[
+&gt;&gt; \Phi =\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix}
+&gt;&gt; \phi^{+}\\
+&gt;&gt; \phi^{0}
+&gt;&gt; \end{pmatrix}
+&gt;&gt; =\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix}
+&gt;&gt; \phi_{2}+i\phi_{1}\\
+&gt;&gt; \frac{1}{2}({\upsilon}+{H})-i\phi_{3}
+&gt;&gt; \end{pmatrix} =\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}exp\bigg{[}\frac{i\phi_{a}(x)\tau^{a}(x)}{\upsilon}\bigg{]}
+&gt;&gt; \begin{pmatrix}
+&gt;&gt; 0\\
+&gt;&gt; \frac{1}{2}(\upsilon+{H(x)})
+&gt;&gt; \end{pmatrix}
+&gt;&gt; $$.
+&gt;&gt;
+&gt;&gt; We can rotate away the fields $$\phi_{a}(x)$$ by an $$SU(2)_{L}$$ gauge transformation
+&gt;&gt;
+&gt;&gt; \end{split}\]</div>
+<p>\Phi(x)\rightarrow\Phi’(x)=U(x)\Phi(x)=\frac{1}{\sqrt{2}}$<span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\begin{pmatrix}
+0\\
+{\upsilon} +{H(x)}
+\end{pmatrix}
+\)</span>$,</p>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+&gt;&gt; U(x)=exp\bigg{[}-i\phi_{a}\tau^{a}(x)\bigg{]}
+&gt;&gt; $$.
+&gt;&gt;
+&gt;&gt; This gauge choice, called unitary gauge, is equivalent to absorbing the Goldstone modes $$\phi_{a}(x)$$.
+&gt;&gt;
+&gt;&gt; Then we can fully expand the term $$(D_{\mu}\Phi)^{2}$$ of the lagrangian $${\cal{L}}_{Scalar}$$:
+&gt;&gt;
+&gt;&gt; \]</div>
+<p>|D_{\mu}\Phi|^{2}=\frac{1}{2}(\partial_{\mu}H)^{2}+\frac{1}{8}g_{2}^{2}(\upsilon+H)^{2}|W_{\mu}^{1}+iW_{\mu}^{2}|^{2}+\frac{1}{8}(\upsilon+H)^{2}|g_{2}W_{\mu}^{3}-g_{1}B_{\mu}|^{2}
+$$.</p>
+<p>We now define the new fields $<span class="math notranslate nohighlight">\(W_{\mu}^{\pm}\)</span><span class="math notranslate nohighlight">\( and \)</span><span class="math notranslate nohighlight">\(Z_{\mu}\)</span><span class="math notranslate nohighlight">\( (\)</span><span class="math notranslate nohighlight">\(A_{\mu}\)</span><span class="math notranslate nohighlight">\( is the field orthogonal to \)</span><span class="math notranslate nohighlight">\(Z_{\mu}\)</span>$):</p>
+<div class="math notranslate nohighlight">
+\[W^{\pm}=\frac{1}{\sqrt{2}}(W_{\mu}^{1}\mp iW_{\mu}^{2}),Z_{\mu}=\frac{g_{2}W_{\mu}^{3}-g_{1}B_{\mu}}{\sqrt{g_{2}^{2}+g_{1}^{2}}},A_{\mu}=\frac{g_{2}W_{\mu}^{3}+g_{1}B_{\mu}}{\sqrt{g_{2}^{2}+g_{1}^{2}}}$$.
+&gt;&gt;
+&gt;&gt; We can pick up the terms which are bilinear in the fields $$W^{\pm}$$, $$Z$$, $$A$$:
+&gt;&gt;
+&gt;&gt; $$M_{W}^{2}{W_{\mu}^{+}W^{-\mu}}+\frac{1}{2}M_{Z}^{2}{Z_{\mu}Z^{\mu}}+\frac{1}{2}M_{A}^{2}{A_{\mu}A^{\mu}}$$.
+&gt;&gt;
+&gt;&gt; The $$W$$ and $$Z$$ bosons have acquired masses, while the photon remains massless
+&gt;&gt;
+&gt;&gt; \]</div>
+<p>M_{W}=\frac{1}{2}\upsilon g_{2}, M_{Z}=\frac{1}{2}\upsilon\sqrt{g_{2}^{2}+g_{1}^{2}}, M_{A}=0
+$$.</p>
+</div></blockquote>
+</div></blockquote>
+<section id="higgs-production-mechanisms-at-hadron-colliders">
+<h2>Higgs Production Mechanisms at Hadron Colliders<a class="headerlink" href="#higgs-production-mechanisms-at-hadron-colliders" title="Permalink to this headline">#</a></h2>
+<p>The four main Higgs production mechanisms at a hadron collider are</p>
+<p><img alt="h_prod.jpg" src="_images/h_prod.jpg" />{:width=”40%”}</p>
+<p>The Higgs boson can decay into fermions and bosons, the total decay width and the branching ratios in function of the Higgs mass are shown below</p>
+<p><img alt="dewidth.jpg" src="_images/dewidthsm.jpg" />{:width=”50%”}
+<img alt="brsm.jpg" src="_images/brsm.jpg" />{:width=”50%”}</p>
+</section>
+<section id="higgs-boson-decay-into-four-leptons">
+<h2>Higgs boson decay into four leptons<a class="headerlink" href="#higgs-boson-decay-into-four-leptons" title="Permalink to this headline">#</a></h2>
+<p>We are going to focus on the data obtained at the ATLAS and CMS detectors at the LHC for the Vector Boson Fusion production mechanism and its subsequent decay into four leptons in order to get this plot using Matplotlib</p>
+<p><img alt="atlas" src="_images/Atlas.png" />{:width=”40%”}
+<img alt="cms" src="_images/CMS.png" />{:width=”40%”}
+<img alt="final-plot" src="_images/final-plot_1.png" />{:width=”80%”}</p>
+<!--- The following sections describe the relevant physics processes of the analysis.
+
+## Signal process
+
+The physical process of interest, also often called signal, is the production of the Higgs boson. The main production modes of the Higgs boson are the gluon fusion and the vector boson fusion production indicated in the plots with the labels gg→H and qq→H, respectively. See below the two Feynman diagrams that describe the processes at leading order.
+
+<div class="row">
+  <div class="col-md-6">
+
+    <img src="http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-13-004/CMS-HIG-13-004_Figure_001-a.png" height="70%" width="70%">
+
+  </div>
+  <div class="col-md-6">
+
+    <img src="http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-13-004/CMS-HIG-13-004_Figure_001-b.png" height="70%" width="70%">
+
+  </div>
+</div>
+--->
+<!---
+## Background processes
+
+Besides the Higgs boson, many other processes can produce very similar signatures in the detector, which have to be taken into account to draw any conclusions from the data.
+--->
+<p>{% include <a class="reference external" href="http://links.md">links.md</a> %}</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="introduction.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="higgs-search.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Higgs Search</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By HSF Training WG<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

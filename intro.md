@@ -1,11 +1,8 @@
 # Matplotlib for HEP
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This training module introduces matplotlib and creates plots commonly used in HEP. It also introduces mplhep, a plotting library designed specifically for HEP plots.
 
-Check out the content pages bundled with this sample book to see more.
+This training module is part of the HSF Software Training Center, a series of training modules that serves HEP newcomers the software skills needed as they enter the field, and in parallel, instill best practices for writing software.
 
 ```{tableofcontents}
 ```
