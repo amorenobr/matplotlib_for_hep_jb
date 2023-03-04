@@ -33,4 +33,5 @@ jb build --all matplotlib_for_hep_jb
 
 ```
 google-chrome-stable _build/html/index.html
+firefox _build/html/index.html
 ```
