@@ -1,4 +1,4 @@
-Matplotlib for HEP Jupyter Book
+# Matplotlib for HEP Jupyter Book
 
 You can build this book locally on the command line following these steps:
 
