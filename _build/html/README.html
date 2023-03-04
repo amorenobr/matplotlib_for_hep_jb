@@ -361,6 +361,39 @@ title="Print to PDF"
               <div>
                 
   <p>Matplotlib for HEP Jupyter Book</p>
+<p>You can build this book locally on the command line following these steps:</p>
+<ol class="simple">
+<li><p>Install <a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda</a></p></li>
+<li><p>Install Jupyter Book using conda</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">book</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Create a new environment and activate it</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">jupyter_book</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">jupyter_book</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Clone the repository containing the book source files</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">amorenobr</span><span class="o">/</span><span class="n">matplotlib_for_hep_jb</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Build your Jupyter Book</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jb</span> <span class="n">build</span> <span class="o">--</span><span class="nb">all</span> <span class="n">matplotlib_for_hep_jb</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>View the Jupyter Book in a browser</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">google</span><span class="o">-</span><span class="n">chrome</span><span class="o">-</span><span class="n">stable</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
 
     <script type="text/x-thebe-config">
     {
