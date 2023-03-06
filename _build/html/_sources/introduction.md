@@ -207,8 +207,8 @@ Here are a few example for combinations of these.
 '^k:'  # black triangle_up markers connected by a dotted line
 ```
 
-`````{admonition} Using the table above, plot functions using different linestyles/markers on the same canvas:
-
+:::::{admonition} Using the table above, plot functions using different linestyles/markers on the same canvas
+:class: dropdown
 ````{admonition} Solution
 ```python
 x1 = np.linspace(1, 10)
@@ -221,7 +221,7 @@ ax.legend()
 fig.show()
 ```
 ````
-`````
+:::::
 
 ## With HEP styling
 
@@ -281,11 +281,12 @@ plt.show()
 
 ![first histogram](/fig/first_histo.png)
 
-## More information?
+```{admonition} More information?
 
 If you want to know what other parameters are available for the `plot` function, or want to learn about other types of plots, visit the [Matplotlib documentation](https://matplotlib.org/) page.
 
 You can also use the built-in python functions `dir(obj)` and `help(obj)` for information on the methods and immediate documentation of the python objects given as an argument.
+```
 
 ```{note}
 Matplotlib also has some [cheatsheets and handouts](https://matplotlib.org/cheatsheets/) which might be useful for quick reference!
