@@ -44,29 +44,28 @@ This code produces the following figure:
 <!-- ![basic_plot](https://matplotlib.org/stable/_images/sphx_glr_usage_002.png) -->
 ![basic_plot](https://matplotlib.org/3.5.1/_images/sphx_glr_usage_001_2_0x.png)
 
-> ## Notice
-> If you look at the plot and the order of the list of numbers you can clearly see that the order of the arguments is of the form
->
-> ```python
-> ax.plot(xpoints,ypoints)
-> ```
->
->But what is useful is that if we wanted to do more than one plot in the same figure we could do this in two main ways.
->```python
-> ax.plot(xpoints,ypoints , xpoints_2,ypoints_2, xpoints_3,ypoints_3)
-> ```
-> Or the more traditional way
-> ```python
-> ax.plot(xpoints,ypoints)
-> ax.plot(xpoints_2,ypoints_2)
-> ax.plot(xpoints_3,ypoints_3)
-> ```
-> Both methods allow you to produce a plot like the following *(we will later see how to produce them in more detail)*
-> > ## See example plot
-> >
-> > ![3linesplot_ver1](/fig/3linesplot_ver2.png)
-> {: .solution}
-{: .callout}
+````{note}
+If you look at the plot and the order of the list of numbers you can clearly see that the order of the arguments is of the form
+```python
+ax.plot(xpoints,ypoints)
+```
+
+But what is useful is that if we wanted to do more than one plot in the same figure we could do this in two main ways.
+```python
+ax.plot(xpoints,ypoints , xpoints_2,ypoints_2, xpoints_3,ypoints_3)
+```
+Or the more traditional way
+```python
+ax.plot(xpoints,ypoints)
+ax.plot(xpoints_2,ypoints_2)
+ax.plot(xpoints_3,ypoints_3)
+```
+Both methods allow you to produce a plot like the following *(we will later see how to produce them in more detail)*
+
+Here is an example plot
+
+![3linesplot_ver1](/fig/3linesplot_ver2.png)
+````
 
 ## What goes into a plot?
 
@@ -74,12 +73,10 @@ Now, let's have a deeper look at the components of a Matplotlib figure.
 
 ![Names for different parts of a matplotlib plot](https://matplotlib.org/stable/_images/anatomy.png)
 
-## How to work with some of these elements?
+### How to work with some of these elements?
 
-> ## Note
-> We will be making the plot shown in the **Notice** above as an example and develop on top of it for each element we will be showing.
+We will be making the plot shown previously as an example and develop on top of it for each element we will be showing.
 This will be done gradually such to only need to add the lines shown in the code.
-{: .callout}
 
 For the following example you will need these lines as a starting point.
 
@@ -209,23 +206,24 @@ Here are a few example for combinations of these.
 '--'   # dashed line with default color
 '^k:'  # black triangle_up markers connected by a dotted line
 ```
-## Exercise:
 
-### Exercise: Using the table above, plot functions using different linestyles/markers on the same canvas:
-> ## Solution
-> ```python
-> x1 = np.linspace(1, 10)
-> y1, y2, y3 = np.log(x1), np.cos(x1), np.sin(x1)
-> fig, ax = plt.subplots()  # Create a figure containing a single axes.
-> ax.plot(x1, y1, linestyle="--", label="Dashed line")
-> ax.plot(x1, y2, linestyle=":", label="Dotted line style")
-> ax.plot(x1, y3, marker="o", label="Circle marker")
-> ax.legend()
-> fig.show()
-> ```
-{: .solution}
+`````{admonition} Using the table above, plot functions using different linestyles/markers on the same canvas:
 
-## With  HEP styling
+````{admonition} Solution
+```python
+x1 = np.linspace(1, 10)
+y1, y2, y3 = np.log(x1), np.cos(x1), np.sin(x1)
+fig, ax = plt.subplots()  # Create a figure containing a single axes.
+ax.plot(x1, y1, linestyle="--", label="Dashed line")
+ax.plot(x1, y2, linestyle=":", label="Dotted line style")
+ax.plot(x1, y3, marker="o", label="Circle marker")
+ax.legend()
+fig.show()
+```
+````
+`````
+
+## With HEP styling
 
 We have available a useful python package called [mplhep](https://mplhep.readthedocs.io/en/latest/index.html#) which is a matplotlib wrapper for easy plotting required in high energy physics (HEP). Primarily “prebinned” 1D & 2D histograms and matplotlib style-sheets carrying recommended plotting styles of large LHC experiments - ATLAS, CMS & LHCb. This project is published on [GitHub](https://github.com/scikit-hep/mplhep) as part of the scikit-hep toolkit.
 
@@ -246,15 +244,15 @@ and with just this addition we can produce the same plot as before with this new
 
 ![mplhep-figure](/fig/mplhep_fig.png)
 
-> ## Warning
->
-> After you import and set the styling with  `hep.style.use("CMS")` all the plots made afterwards will have this styling implemented.
-> To get back the default styling do
-> ```python
-> import matplotlib
-> matplotlib.style.use('default')
-> ```
-{: .callout}
+````{warning}
+After you import and set the styling with  `hep.style.use("CMS")` all the plots made afterwards will have this styling implemented.
+
+To get back the default styling do
+```python
+import matplotlib
+matplotlib.style.use('default')
+```
+````
 
 ## Other types of plots
 
@@ -289,8 +287,7 @@ If you want to know what other parameters are available for the `plot` function,
 
 You can also use the built-in python functions `dir(obj)` and `help(obj)` for information on the methods and immediate documentation of the python objects given as an argument.
 
-> ## Note
-> Matplotlib also has some [cheatsheets and handouts](https://matplotlib.org/cheatsheets/) which might be useful for quick reference!
-{: .callout}
+```{note}
+Matplotlib also has some [cheatsheets and handouts](https://matplotlib.org/cheatsheets/) which might be useful for quick reference!
+```
 
-{% include links.md %}

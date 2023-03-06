@@ -1,4 +1,4 @@
-Matplotlib for HEP Jupyter Book
+# Matplotlib for HEP Jupyter Book
 
 You can build this book locally on the command line following these steps:
 
@@ -33,4 +33,5 @@ jb build --all matplotlib_for_hep_jb
 
 ```
 google-chrome-stable _build/html/index.html
+firefox _build/html/index.html
 ```
