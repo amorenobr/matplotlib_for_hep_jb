@@ -1,4 +1,16 @@
-# Matplotlib for HEP Jupyter Book
+# Matplotlib for HEP
+
+![m4lep_histogram_6](/fig/m4lep_histogram_6.png)
+
+This training module introduces matplotlib and creates plots commonly used in HEP. It also introduces mplhep, a plotting library designed specifically for HEP plots.
+
+This training module is part of the HSF Software Training Center, a series of training modules that serves HEP newcomers the software skills needed as they enter the field, and in parallel, instill best practices for writing software.
+
+## Table of Contents
+
+```{tableofcontents}
+```
+
 
 You can build this book locally on the command line following these steps:
 
