@@ -8,8 +8,13 @@ This training module is part of the HSF Software Training Center, a series of tr
 
 ## Table of Contents
 
-```{tableofcontents}
-```
+||Topic|
+|---|---|
+|1|[Introduction](introduction.md)|
+|2|[Physics Background](physics.md)|
+|3|[Higgs Search](higgs-search.md)|
+|4|[Plotting with mplhep for HEP Style Plotting](mplhep.md)|
+|5|[Dimuon Spectrum](dimuonspectrum.md)|
 
 
 You can build this book locally on the command line following these steps:
