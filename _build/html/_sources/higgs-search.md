@@ -40,7 +40,6 @@ import numpy as np
 > ## Auto-show in jupyter notebooks
 >
 > The jupyter backends (activated via `%matplotlib inline`, `%matplotlib notebook`, or `%matplotlib widget`), call show() at the end of every cell by default. Thus, you usually don't have to call it explicitly there.
-{: .callout}
 
 
 ## Samples
@@ -80,7 +79,6 @@ import uproot
 >
 > If you want to learn more of the Uproot python Module you can take a look to the tutorial also given by the HEP software foundation in the following
 > [link.](https://hsf-training.github.io/hsf-training-uproot-webpage/index.html)
-{: .callout}
 
 For each sample of the above `samples_dic`, we will return another dictionary that will contain all the "branches" or "variables"".
 ```python
@@ -124,7 +122,6 @@ list(Tuples["data_A"].keys())
  'lep_E',
  'sum_lep_charge']
 ~~~
-{: .output}
 
 Let's access one of these "branches" and make a simple plot:
 
@@ -149,7 +146,6 @@ ax.hist(branches["data_A"]["m4l"])
         649.2721  ], dtype=float32),
  <BarContainer object of 10 artists>)
 ~~~
-{: .output}
 
 ![m4lep_histogram__0](/fig/m4lep_histogram_0.png)
 
@@ -177,7 +173,6 @@ ax.hist(branches["data_A"]["m4l"])
         649.2721  ], dtype=float32),
  <BarContainer object of 10 artists>)
 ~~~
-{: .output}
 
 ![m4lep_histogram_1](/fig/m4lep_histogram_1.png)
 
@@ -244,7 +239,6 @@ branches["data_A"]["sum_good_lep"]
 ~~~
 <Array [4, 4, 3, 4, 4, 4, ... 4, 4, 2, 2, 4, 3] type='32 * int32'>
 ~~~
-{: .output}
 
 We will keep the events with "sum_good_lep"==4 (this is the topology we are looking for).
 
@@ -255,7 +249,6 @@ branches["data_A"]["sum_good_lep"] == 4
 ~~~
 <Array [True, True, False, ... True, False] type='32 * bool'>
 ~~~
-{: .output}
 
 We can save this array in a variable to use later in a more complicated combination of requirements using the `&`, `|` and `~` logical operators.
 
@@ -328,7 +321,6 @@ mc_363490.llll       Initial events:  547,603
 mc_361106.Zee       Initial events:  244
 mc_361107.Zmumu       Initial events:  148
 ~~~
-{: .output}
 
 ```python
 for s in samples:
@@ -348,7 +340,6 @@ mc_363490.llll       After selection:  454,699
 mc_361106.Zee       After selection:  27
 mc_361107.Zmumu       After selection:  16
 ~~~
-{: .output}
 
 Notice that the background events are reduced meanwhile we try to keep most of the signal.
 
@@ -365,7 +356,6 @@ print(mc_samples)
 ~~~
 ['higgs', 'zz', 'other']
 ~~~
-{: .output}
 
 Remember that our variable of interest is the mass of the 4 leptons (m4l),
 then, let's append in `stack_mc_list_m4l` the values of this variable for the 3 merged samples corresponding to the processes above.
@@ -403,7 +393,6 @@ for k in range(0, 3):
 454,699 454,699
 43 43
 ~~~
-{: .output}
 
 And then make a plot, actually, let's make 2 plots, with matplotlib we can add sub-plots to the figure, then, we will be able to compare the MC distribution without and with weights.
 
@@ -460,7 +449,6 @@ len(stack_data_list_m4l)
 ~~~
 321
 ~~~
-{: .output}
 
 To make more easy the data vs. MC final plot, we can define the following helper function that makes a histogram of the data and calculates the poisson uncertainty in each bin.
 When we want to make a plot that includes uncertainties we need to use the `ax.errorbar` function.
@@ -527,7 +515,6 @@ ax.legend(fontsize=18, frameon=False)
 > > ax.legend(frameon=False)
 > > ```
 > {: .solution}
-{: .challenge}
 
 ### Final Plot
 
@@ -536,4 +523,3 @@ You can see at 125 GeV the component corresponding at the Higgs boson.
 
 **Bonus**: If you are more curious about other HEP analysis tools, you can take a look at this same example developed with the ROOT framework [here](https://root.cern.ch/doc/v622/df106__HiggsToFourLeptons_8py.html).
 
-{% include links.md %}

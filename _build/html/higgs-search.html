@@ -524,8 +524,7 @@ Here, we will use the available 4 leptons final state samples for simulated samp
 </div>
 <section id="auto-show-in-jupyter-notebooks">
 <h2>Auto-show in jupyter notebooks<a class="headerlink" href="#auto-show-in-jupyter-notebooks" title="Permalink to this headline">#</a></h2>
-<p>The jupyter backends (activated via <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>, <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>, or <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">widget</span></code>), call show() at the end of every cell by default. Thus, you usually don’t have to call it explicitly there.
-{: .callout}</p>
+<p>The jupyter backends (activated via <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>, <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>, or <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">widget</span></code>), call show() at the end of every cell by default. Thus, you usually don’t have to call it explicitly there.</p>
 </section>
 <section id="samples">
 <h2>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">#</a></h2>
@@ -595,7 +594,6 @@ followed by the “higgs” MC samples and at the end the “zz” and “others
  <span class="s1">&#39;sum_lep_charge&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Let’s access one of these “branches” and make a simple plot:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">branches</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
@@ -615,7 +613,6 @@ followed by the “higgs” MC samples and at the end the “zz” and “others
  <span class="o">&lt;</span><span class="n">BarContainer</span> <span class="nb">object</span> <span class="n">of</span> <span class="mi">10</span> <span class="n">artists</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p><img alt="m4lep_histogram__0" src="_images/m4lep_histogram_0.png" /></p>
 <p><strong>Tip:</strong> In the previous plot the numbers in the axis are very small, we can change the font size (and font family) for all the following plots, including in our code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update the matplotlib configuration parameters:</span>
@@ -636,14 +633,12 @@ followed by the “higgs” MC samples and at the end the “zz” and “others
  <span class="o">&lt;</span><span class="n">BarContainer</span> <span class="nb">object</span> <span class="n">of</span> <span class="mi">10</span> <span class="n">artists</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p><img alt="m4lep_histogram_1" src="_images/m4lep_histogram_1.png" /></p>
 </section>
 <section id="uproot-tutorial">
 <h2>Uproot tutorial<a class="headerlink" href="#uproot-tutorial" title="Permalink to this headline">#</a></h2>
 <p>If you want to learn more of the Uproot python Module you can take a look to the tutorial also given by the HEP software foundation in the following
-<a class="reference external" href="https://hsf-training.github.io/hsf-training-uproot-webpage/index.html">link.</a>
-{: .callout}</p>
+<a class="reference external" href="https://hsf-training.github.io/hsf-training-uproot-webpage/index.html">link.</a></p>
 </section>
 <section id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
@@ -700,7 +695,6 @@ Therefore, we can use the sum of the number of good leptons per event. This vari
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Array</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">...</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;32 * int32&#39;</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>We will keep the events with “sum_good_lep”==4 (this is the topology we are looking for).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">branches</span><span class="p">[</span><span class="s2">&quot;data_A&quot;</span><span class="p">][</span><span class="s2">&quot;sum_good_lep&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
 </pre></div>
@@ -708,7 +702,6 @@ Therefore, we can use the sum of the number of good leptons per event. This vari
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Array</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="o">...</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;32 * bool&#39;</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>We can save this array in a variable to use later in a more complicated combination of requirements using the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code> and <code class="docutils literal notranslate"><span class="pre">~</span></code> logical operators.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sum_leptons_test</span> <span class="o">=</span> <span class="n">branches</span><span class="p">[</span><span class="s2">&quot;data_A&quot;</span><span class="p">][</span><span class="s2">&quot;sum_good_lep&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
 </pre></div>
@@ -752,7 +745,6 @@ Therefore, we can use the sum of the number of good leptons per event. This vari
 <span class="n">mc_361107</span><span class="o">.</span><span class="n">Zmumu</span>       <span class="n">Initial</span> <span class="n">events</span><span class="p">:</span>  <span class="mi">148</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span>
         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">       After selection:  </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">branches</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="s1">&#39;m4l&#39;</span><span class="p">][</span><span class="n">selection_events</span><span class="p">[</span><span class="n">s</span><span class="p">]])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -770,7 +762,6 @@ Therefore, we can use the sum of the number of good leptons per event. This vari
 <span class="n">mc_361107</span><span class="o">.</span><span class="n">Zmumu</span>       <span class="n">After</span> <span class="n">selection</span><span class="p">:</span>  <span class="mi">16</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Notice that the background events are reduced meanwhile we try to keep most of the signal.</p>
 </section>
 <section id="id1">
@@ -808,7 +799,6 @@ We will merge the samples following the classification we introduced at the begi
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;higgs&#39;</span><span class="p">,</span> <span class="s1">&#39;zz&#39;</span><span class="p">,</span> <span class="s1">&#39;other&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>Remember that our variable of interest is the mass of the 4 leptons (m4l),
 then, let’s append in <code class="docutils literal notranslate"><span class="pre">stack_mc_list_m4l</span></code> the values of this variable for the 3 merged samples corresponding to the processes above.</p>
 <p>On the other hand, a very important aspect of the MC samples is the weights,
@@ -840,7 +830,6 @@ Notice that the weights should be of the same shape variable that we want to plo
 <span class="mi">43</span> <span class="mi">43</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>And then make a plot, actually, let’s make 2 plots, with matplotlib we can add sub-plots to the figure, then, we will be able to compare the MC distribution without and with weights.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var_name</span> <span class="o">=</span> <span class="s2">&quot;m4l&quot;</span>
 <span class="n">units</span> <span class="o">=</span> <span class="s2">&quot; [GeV]&quot;</span>
@@ -889,7 +878,6 @@ Notice that the weights should be of the same shape variable that we want to plo
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">321</span>
 </pre></div>
 </div>
-<p>{: .output}</p>
 <p>To make more easy the data vs. MC final plot, we can define the following helper function that makes a histogram of the data and calculates the poisson uncertainty in each bin.
 When we want to make a plot that includes uncertainties we need to use the <code class="docutils literal notranslate"><span class="pre">ax.errorbar</span></code> function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">data_var</span><span class="p">,</span> <span class="n">range_ab</span><span class="p">,</span> <span class="n">bins_samples</span><span class="p">):</span>
@@ -930,8 +918,7 @@ When we want to make a plot that includes uncertainties we need to use the <code
 <section id="id3">
 <h2>Exercise<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>Modify a bit the previous code to include the ticks and text, in the text and axis labels use latex to achieve the final plot.</p>
-<p>{: .solution}
-{: .challenge}</p>
+<p>{: .solution}</p>
 </section>
 <section id="id4">
 <h2>Solution<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
@@ -961,7 +948,6 @@ When we want to make a plot that includes uncertainties we need to use the <code
 <p>You can see at 125 GeV the component corresponding at the Higgs boson.
 <img alt="m4lep_histogram_6" src="_images/m4lep_histogram_6.png" /></p>
 <p><strong>Bonus</strong>: If you are more curious about other HEP analysis tools, you can take a look at this same example developed with the ROOT framework <a class="reference external" href="https://root.cern.ch/doc/v622/df106__HiggsToFourLeptons_8py.html">here</a>.</p>
-<p>{% include <a class="reference external" href="http://links.md">links.md</a> %}</p>
 </section>
 </section>
 </section>
