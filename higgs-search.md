@@ -176,11 +176,7 @@ ax.hist(branches["data_A"]["m4l"])
 
 ![m4lep_histogram_1](/fig/m4lep_histogram_1.png)
 
-:::::{admonition} Make the histogram of the variable `m4l` for sample `mc_363490.llll`.
-In the range `[0,200]`.
-With `bins=50`.
-Include a legend "llll".
-Include the axis labels "Events" and "m4l", in the axis y and x, respectively.
+:::::{admonition} Make the histogram of the variable `m4l` for sample `mc_363490.llll`. In the range `[0,200]`. With `bins=50`. Include a legend "llll". Include the axis labels "Events" and "m4l", in the axis y and x, respectively.
 :class: dropdown
 ````{admonition} Solution
 ```python
@@ -253,8 +249,7 @@ sum_leptons_test = branches["data_A"]["sum_good_lep"] == 4
 
 We certainly can visualize this information with Matplotlib making a histogram :).
 
-:::::{admonition} Make a histogram of the variable "sum_good_lep" for the sample "data_A" or another sample. Try to represent in your histogram what 
-are the events that we wanted to keep using lines, arrows or text in your plot.
+:::::{admonition} Make a histogram of the variable "sum_good_lep" for the sample "data_A" or another sample. Try to represent in your histogram what are the events that we wanted to keep using lines, arrows or text in your plot.
 :class: dropdown
 ````{admonition} Solution
 ```python
