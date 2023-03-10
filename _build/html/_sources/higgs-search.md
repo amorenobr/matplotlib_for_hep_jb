@@ -32,20 +32,17 @@ First we need to import numpy and the `matplotlib.pyplot` module under the name 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
-```
-```text
 %matplotlib inline
 ```
 
-> ## Auto-show in jupyter notebooks
->
-> The jupyter backends (activated via `%matplotlib inline`, `%matplotlib notebook`, or `%matplotlib widget`), call show() at the end of every cell by default. Thus, you usually don't have to call it explicitly there.
-
+```{admonition} Auto-show in jupyter notebooks
+The jupyter backends (activated via `%matplotlib inline`, `%matplotlib notebook`, or `%matplotlib widget`), call show() at the end of every cell by default. Thus, you usually don't have to call it explicitly there.
+```
 
 ## Samples
 
 In the following dictionary, we have classified the samples we will work on, starting with the "data" samples,
-followed by the "higgs" MC samples and at the end the "zz" and "others" MC background components.
+followed by the "Higgs" MC samples and at the end the "zz" and "others" MC background components.
 
 ```python
 samples_dic = {
@@ -75,10 +72,10 @@ We will use uproot to read the content of our samples that are in ROOT format.
 import uproot
 ```
 
-> ## Uproot tutorial
->
-> If you want to learn more of the Uproot python Module you can take a look to the tutorial also given by the HEP software foundation in the following
-> [link.](https://hsf-training.github.io/hsf-training-uproot-webpage/index.html)
+```{admonition} Uproot tutorial
+If you want to learn more of the Uproot python Module you can take a look to the tutorial also given by the HEP software foundation in the following
+[link.](https://hsf-training.github.io/hsf-training-uproot-webpage/index.html)
+```
 
 For each sample of the above `samples_dic`, we will return another dictionary that will contain all the "branches" or "variables"".
 ```python
@@ -149,7 +146,9 @@ ax.hist(branches["data_A"]["m4l"])
 
 ![m4lep_histogram__0](/fig/m4lep_histogram_0.png)
 
-**Tip:** In the previous plot the numbers in the axis are very small, we can change the font size (and font family) for all the following plots, including in our code:
+
+````{tip}
+In the previous plot the numbers in the axis are very small, we can change the font size (and font family) for all the following plots, including in our code:
 
 ```python
 # Update the matplotlib configuration parameters:
@@ -157,6 +156,7 @@ mpl.rcParams.update({"font.size": 16, "font.family": "serif"})
 ```
 
 Note that this changes the global setting, but it can still be overwritten later.
+````
 
 Let's do the plot again to see the changes:
 
@@ -176,30 +176,26 @@ ax.hist(branches["data_A"]["m4l"])
 
 ![m4lep_histogram_1](/fig/m4lep_histogram_1.png)
 
-> ## Exercise
->
-> Make the histogram of the variable `m4l` for sample `mc_363490.llll`.
->
-> In the range `[0,200]`.
->
-> With `bins=50`.
->
-> Include a legend "llll".
->
-> Include the axis labels "Events" and "m4l", in the axis y and x, respectively.
-> > ## Solution
-> > ```python
-> > fig, ax = plt.subplots()
-> > fig.set_size_inches((12, 8))
-> > ax.set_title("First look to the samples")
-> > ax.hist(branches["mc_363490.llll"]["m4l"], label="zz", range=[0, 200], bins=50)
-> > ax.set_xlabel("m4l")
-> > ax.set_ylabel("Events")
-> > ax.legend()
-> > ```
-> > ![m4lep_histogram_2_0](/fig/m4lep_histogram_2_0.png)
-> {: .solution}
-{: .challenge}
+:::::{admonition} Make the histogram of the variable `m4l` for sample `mc_363490.llll`.
+:class: dropdown
+In the range `[0,200]`.
+With `bins=50`.
+Include a legend "llll".
+Include the axis labels "Events" and "m4l", in the axis y and x, respectively.
+````{admonition} Solution
+```python
+fig, ax = plt.subplots()
+fig.set_size_inches((12, 8))
+ax.set_title("First look to the samples")
+ax.hist(branches["mc_363490.llll"]["m4l"], label="zz", range=[0, 200], bins=50)
+ax.set_xlabel("m4l")
+ax.set_ylabel("Events")
+ax.legend()
+```
+![m4lep_histogram_2_0](/fig/m4lep_histogram_2_0.png)
+```
+````
+:::::
 
 ## Selection criteria
 
