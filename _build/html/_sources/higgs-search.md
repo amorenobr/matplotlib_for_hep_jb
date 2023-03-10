@@ -177,11 +177,11 @@ ax.hist(branches["data_A"]["m4l"])
 ![m4lep_histogram_1](/fig/m4lep_histogram_1.png)
 
 :::::{admonition} Make the histogram of the variable `m4l` for sample `mc_363490.llll`.
-:class: dropdown
 In the range `[0,200]`.
 With `bins=50`.
 Include a legend "llll".
 Include the axis labels "Events" and "m4l", in the axis y and x, respectively.
+:class: dropdown
 ````{admonition} Solution
 ```python
 fig, ax = plt.subplots()
@@ -223,7 +223,6 @@ branches["data_A"]["good_lep"]
 ~~~
 <Array [[1, 1, 1, 1], [1, ... 1], [1, 0, 1, 1]] type='32 * var * int32'>
 ~~~
-{: .output}
 
 From the previous output, we can notice that not all events have 4 good leptons.
 Therefore, we can use the sum of the number of good leptons per event. This variable is stored as "sum_good_lep".
@@ -253,28 +252,28 @@ sum_leptons_test = branches["data_A"]["sum_good_lep"] == 4
 ```
 
 We certainly can visualize this information with Matplotlib making a histogram :).
-> ## Exercise
->
-> Make a histogram of the variable "sum_good_lep" for the sample "data_A" or another sample.
->
->Try to represent in your histogram what are the events that we wanted to keep using lines, arrows or text in your plot.
-> > ## Solution
-> > ```python
-> > fig, ax = plt.subplots()
-> > fig.set_size_inches((12, 8))
-> > ax.set_title("Cut")
-> > ax.hist(branches["data_A"]["sum_good_lep"], range=[0, 10], bins=10, label="data A")
-> > ax.arrow(2, 10, 2, 0,width=0.15, head_width=0.4, length_includes_head=True, color="red")
-> > ax.arrow(7, 10, -2, 0,width=0.15, head_width=0.4, length_includes_head=True, color="red")
-> > ax.axvline(x=4, color="red")
-> > ax.axvline(x=5, color="red")
-> > ax.set_xlabel("sum good lep")
-> > ax.set_ylabel("Events")
-> > ax.legend(frameon=False)
-> > ```
-> > ![cut_histogram_3](/fig/cut_histogram_3.png)
-> {: .solution}
-{: .challenge}
+
+:::::{admonition} Make a histogram of the variable "sum_good_lep" for the sample "data_A" or another sample. Try to represent in your histogram what 
+are the events that we wanted to keep using lines, arrows or text in your plot.
+:class: dropdown
+````{admonition} Solution
+```python
+fig, ax = plt.subplots()
+fig.set_size_inches((12, 8))
+ax.set_title("Cut")
+ax.hist(branches["data_A"]["sum_good_lep"], range=[0, 10], bins=10, label="data A")
+ax.arrow(2, 10, 2, 0,width=0.15, head_width=0.4, length_includes_head=True, color="red")
+ax.arrow(7, 10, -2, 0,width=0.15, head_width=0.4, length_includes_head=True, color="red")
+ax.axvline(x=4, color="red")
+ax.axvline(x=5, color="red")
+ax.set_xlabel("sum good lep")
+ax.set_ylabel("Events")
+ax.legend(frameon=False)
+```
+![cut_histogram_3](/fig/cut_histogram_3.png)
+```
+````
+:::::
 
 Finally, let's save in a dictionary for all the samples the requirements mentioned above as follows:
 ```python
@@ -484,38 +483,41 @@ ax.legend(fontsize=18, frameon=False)
 ```
 
 ![m4lep_histogram_5](/fig/m4lep_histogram_5.png)
-> ## Exercise
->
-> Modify a bit the previous code to include the ticks and text, in the text and axis labels use latex to achieve the final plot.
->
-> > ## Solution
-> > ```python
-> > fig, ax = plt.subplots()
-> > fig.set_size_inches((12, 8))
-> > plot_data(stack_data_list_m4l, ranges[0], bins)
-> > ax.hist(
-> >     stack_mc_list_m4l,
-> >     range=ranges[0],
-> >     label=mc_samples,
-> >     stacked=True,
-> >     weights=stack_weights_list,
-> >     bins=bins,
-> > )
-> > ax.set_ylabel("Events", loc="top")
-> > ax.set_xlabel(r"$m^{H \rightarrow ZZ}_{4l}$" + units, loc="right")
-> > ax.tick_params(which="both", direction="in", length=6, width=1)
-> > ax.text(80, 28, "ATLAS", weight="bold")
-> > ax.text(93, 28, "Open Data")
-> > ax.text(80, 25, r"$\sqrt{s}$" + " = 13 TeV," + " $\int$Ldt = " + " 10 fb" + r"$^{-1}$")
-> > ax.set_ylim(0, 30)
-> > ax.legend(frameon=False)
-> > ```
-> {: .solution}
+
+:::::{admonition} Modify a bit the previous code to include the ticks and text, in the text and axis labels use latex to achieve the final plot.
+:class: dropdown
+````{admonition} Solution
+```python
+fig, ax = plt.subplots()
+fig.set_size_inches((12, 8))
+plot_data(stack_data_list_m4l, ranges[0], bins)
+ax.hist(
+    stack_mc_list_m4l,
+    range=ranges[0],
+    label=mc_samples,
+    stacked=True,
+    weights=stack_weights_list,
+    bins=bins,
+)
+ax.set_ylabel("Events", loc="top")
+ax.set_xlabel(r"$m^{H \rightarrow ZZ}_{4l}$" + units, loc="right")
+ax.tick_params(which="both", direction="in", length=6, width=1)
+ax.text(80, 28, "ATLAS", weight="bold")
+ax.text(93, 28, "Open Data")
+ax.text(80, 25, r"$\sqrt{s}$" + " = 13 TeV," + " $\int$Ldt = " + " 10 fb" + r"$^{-1}$")
+ax.set_ylim(0, 30)
+ax.legend(frameon=False)
+```
+````
+:::::
+
 
 ### Final Plot
 
 You can see at 125 GeV the component corresponding at the Higgs boson.
 ![m4lep_histogram_6](/fig/m4lep_histogram_6.png)
 
-**Bonus**: If you are more curious about other HEP analysis tools, you can take a look at this same example developed with the ROOT framework [here](https://root.cern.ch/doc/v622/df106__HiggsToFourLeptons_8py.html).
+```{admonition} Bonus
+If you are more curious about other HEP analysis tools, you can take a look at this same example developed with the ROOT framework [here](https://root.cern.ch/doc/v622/df106__HiggsToFourLeptons_8py.html).
+```
 
