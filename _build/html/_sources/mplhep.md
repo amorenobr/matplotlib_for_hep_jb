@@ -132,11 +132,11 @@ This would plot the following figure.
 
 ![](/fig/zz.png)
 
-> ## Exercise
-> Plot each of the backgrounds individually. You should have something similar to
-> ![](/fig/drellyan.png)
-> ![](/fig/ttbar.png)
-{: .challenge}
+:::{admonition} Plot each of the backgrounds individually. You should have something similar to
+![](/fig/drellyan.png)
+![](/fig/ttbar.png)
+:::
+
 
 ### Stacking histograms and adding the CMS logo.
 
@@ -168,51 +168,52 @@ yerrs = np.sqrt(hist)
 
 **Remember** : Google is your friend.
 
-> ## Solution (don't look before trying yourself)
-> ```python
->
->xerrs = [width * 0.5 for i in range(0, nbins)]
->yerrs = np.sqrt(hist)
->fig, ax = plt.subplots(figsize=(10, 5))
->hep.histplot(
->    [ttbar, dy, zz],
->    stack=True,
->    bins=bins,
->    histtype="fill",
->    color=["grey", "g", "b"],
->    alpha=0.5,
->    edgecolor="black",
->    label=[r"$t\bar{t}$", "Z/$\gamma^{*}$ + X", r"ZZ $\rightarrow$ 4l"],
->    ax=ax
->)
->
-># Measured data
->ax.errorbar(
->    center,
->    hist,
->    xerr=xerrs,
->    yerr=yerrs,
->    linestyle="None",
->    color="black",
->    marker="o",
->    label="Data"
->)
->
->ax.title(
->    "$ \sqrt{s} = 7$ TeV, L = 2.3 $fb^{-1}$; $\sqrt{s} = 8$ TeV, L = 11.6 $fb^{-1}$ \n",
->    fontsize=15,
->)
->ax.set_xlabel("$m_{4l}$ (GeV)", fontsize=15)
->ax.set_ylabel("Events / 3 GeV\n", fontsize=15)
->ax.set_ylim(0, 25)
->ax.set_xlim(rmin, rmax)
->ax.legend(fontsize=15)
->hep.cms.label(rlabel="")
->
->fig.show()
->```
-> ![](/fig/background+data.png)
-{: .solution}
+::::{admonition} Solution (don't look before trying yourself)
+:class: dropdown
+```python
+
+xerrs = [width * 0.5 for i in range(0, nbins)]
+yerrs = np.sqrt(hist)
+fig, ax = plt.subplots(figsize=(10, 5))
+hep.histplot(
+    [ttbar, dy, zz],
+    stack=True,
+    bins=bins,
+    histtype="fill",
+    color=["grey", "g", "b"],
+    alpha=0.5,
+    edgecolor="black",
+    label=[r"$t\bar{t}$", "Z/$\gamma^{*}$ + X", r"ZZ $\rightarrow$ 4l"],
+    ax=ax
+)
+
+# Measured data
+ax.errorbar(
+    center,
+    hist,
+    xerr=xerrs,
+    yerr=yerrs,
+    linestyle="None",
+    color="black",
+    marker="o",
+    label="Data"
+)
+
+ax.title(
+    "$ \sqrt{s} = 7$ TeV, L = 2.3 $fb^{-1}$; $\sqrt{s} = 8$ TeV, L = 11.6 $fb^{-1}$ \n",
+    fontsize=15,
+)
+ax.set_xlabel("$m_{4l}$ (GeV)", fontsize=15)
+ax.set_ylabel("Events / 3 GeV\n", fontsize=15)
+ax.set_ylim(0, 25)
+ax.set_xlim(rmin, rmax)
+ax.legend(fontsize=15)
+hep.cms.label(rlabel="")
+
+fig.show()
+```
+![](/fig/background+data.png)
+::::
 
 ## Putting it all together
 
@@ -250,65 +251,65 @@ fig.show()
 
 ![](/fig/hzz.png)
 
-> ## Bonus question: how can something, that seems to have a mass of roughly 125 GeV decay via two Z bosons, with mass over 90 GeV?
->Add that graph with all background + data and see how it lines up.
-{: .challenge}
+:::::{admonition} Bonus question: how can something, that seems to have a mass of roughly 125 GeV decay via two Z bosons, with mass over 90 GeV? Add that graph with all background + data and see how it lines up.
+:class: dropdown
+````{admonition} Solution
+```python
+fig, ax = plt.subplots(figsize=(15, 5))
 
-> ## Solution
->```python
->fig, ax = plt.subplots(figsize=(15, 5))
->
->xerrs = [width * 0.5 for i in range(0, nbins)]
->yerrs = np.sqrt(hist)
->
->hep.histplot(
->    [ttbar, dy, zz, hzz],
->    stack=True,
->    bins=bins,
->    histtype="fill",
->    color=["grey", "g", "b", "w"],
->    alpha=[0.5, 0.5, 0.5, 1],
->    edgecolor=["k", "k", "k", "r"],
->    label=[
->        r"$t\bar{t}$",
->        "Z/$\gamma^{*}$ + X",
->        r"ZZ $\rightarrow$ 4l",
->        "$m_{H}$ = 125 GeV",
->    ],
->    ax=ax
->)
->
->hep.cms.label(rlabel="")
->
-># Measured data
->ax.errorbar(
->    center,
->    hist,
->    xerr=xerrs,
->    yerr=yerrs,
->    linestyle="None",
->   color="black",
->    marker="o",
->    label="Data"
->)
->
->ax.title(
->    "$ \sqrt{s} = 7$ TeV, L = 2.3 $fb^{-1}$; $\sqrt{s} = 8$ TeV, L = 11.6 $fb^{-1}$ \n",
->    fontsize=16,
->)
->ax.set_xlabel("$m_{4l}$ (GeV)", fontsize=15)
->ax.set_ylabel("Events / 3 GeV\n", fontsize=15)
->ax.set_ylim(0, 25)
->ax.set_xlim(rmin, rmax)
->ax.legend(fontsize=15)
->
->fig.savefig("final-plot.png", dpi=140)
->fig.show()
->```
-{: .solution}
+xerrs = [width * 0.5 for i in range(0, nbins)]
+yerrs = np.sqrt(hist)
 
+hep.histplot(
+    [ttbar, dy, zz, hzz],
+    stack=True,
+    bins=bins,
+    histtype="fill",
+    color=["grey", "g", "b", "w"],
+    alpha=[0.5, 0.5, 0.5, 1],
+    edgecolor=["k", "k", "k", "r"],
+    label=[
+        r"$t\bar{t}$",
+        "Z/$\gamma^{*}$ + X",
+        r"ZZ $\rightarrow$ 4l",
+        "$m_{H}$ = 125 GeV",
+    ],
+    ax=ax
+)
+
+hep.cms.label(rlabel="")
+
+# Measured data
+ax.errorbar(
+    center,
+    hist,
+    xerr=xerrs,
+    yerr=yerrs,
+    linestyle="None",
+   color="black",
+    marker="o",
+    label="Data"
+)
+
+ax.title(
+    "$ \sqrt{s} = 7$ TeV, L = 2.3 $fb^{-1}$; $\sqrt{s} = 8$ TeV, L = 11.6 $fb^{-1}$ \n",
+    fontsize=16,
+)
+ax.set_xlabel("$m_{4l}$ (GeV)", fontsize=15)
+ax.set_ylabel("Events / 3 GeV\n", fontsize=15)
+ax.set_ylim(0, 25)
+ax.set_xlim(rmin, rmax)
+ax.legend(fontsize=15)
+
+fig.savefig("final-plot.png", dpi=140)
+fig.show()
+```
 ![](/fig/final-plot.png)
+````
+:::::
 
-## Done! We are ready to publish :)
+:::{admonition} Done!
+:class: note
+We are ready to publish :)
+:::
 
-{% include links.md %}
