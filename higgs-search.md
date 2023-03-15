@@ -189,7 +189,6 @@ ax.set_ylabel("Events")
 ax.legend()
 ```
 ![m4lep_histogram_2_0](/fig/m4lep_histogram_2_0.png)
-```
 ````
 :::::
 
@@ -266,7 +265,6 @@ ax.set_ylabel("Events")
 ax.legend(frameon=False)
 ```
 ![cut_histogram_3](/fig/cut_histogram_3.png)
-```
 ````
 :::::
 

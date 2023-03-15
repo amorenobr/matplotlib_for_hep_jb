@@ -560,13 +560,8 @@ followed by the “Higgs” MC samples and at the end the “zz” and “others
 </pre></div>
 </div>
 <p><img alt="m4lep_histogram_1" src="_images/m4lep_histogram_1.png" /></p>
-<div class="admonition-make-the-histogram-of-the-variable-m4l-for-sample-mc-363490-llll admonition">
-<p class="admonition-title">Make the histogram of the variable <code class="docutils literal notranslate"><span class="pre">m4l</span></code> for sample <code class="docutils literal notranslate"><span class="pre">mc_363490.llll</span></code>.</p>
-<p>In the range <code class="docutils literal notranslate"><span class="pre">[0,200]</span></code>.
-With <code class="docutils literal notranslate"><span class="pre">bins=50</span></code>.
-Include a legend “llll”.
-Include the axis labels “Events” and “m4l”, in the axis y and x, respectively.
-:class: dropdown</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Make the histogram of the variable <code class="docutils literal notranslate"><span class="pre">m4l</span></code> for sample <code class="docutils literal notranslate"><span class="pre">mc_363490.llll</span></code>. In the range <code class="docutils literal notranslate"><span class="pre">[0,200]</span></code>. With <code class="docutils literal notranslate"><span class="pre">bins=50</span></code>. Include a legend “llll”. Include the axis labels “Events” and “m4l”, in the axis y and x, respectively.</p>
 <div class="admonition-solution admonition">
 <p class="admonition-title">Solution</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -579,9 +574,6 @@ Include the axis labels “Events” and “m4l”, in the axis y and x, respect
 </pre></div>
 </div>
 <p><img alt="m4lep_histogram_2_0" src="_images/m4lep_histogram_2_0.png" /></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -628,10 +620,8 @@ Therefore, we can use the sum of the number of good leptons per event. This vari
 </pre></div>
 </div>
 <p>We certainly can visualize this information with Matplotlib making a histogram :).</p>
-<div class="admonition-make-a-histogram-of-the-variable-sum-good-lep-for-the-sample-data-a-or-another-sample-try-to-represent-in-your-histogram-what admonition">
-<p class="admonition-title">Make a histogram of the variable “sum_good_lep” for the sample “data_A” or another sample. Try to represent in your histogram what </p>
-<p>are the events that we wanted to keep using lines, arrows or text in your plot.
-:class: dropdown</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Make a histogram of the variable “sum_good_lep” for the sample “data_A” or another sample. Try to represent in your histogram what are the events that we wanted to keep using lines, arrows or text in your plot.</p>
 <div class="admonition-solution admonition">
 <p class="admonition-title">Solution</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -648,9 +638,6 @@ Therefore, we can use the sum of the number of good leptons per event. This vari
 </pre></div>
 </div>
 <p><img alt="cut_histogram_3" src="_images/cut_histogram_3.png" /></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Finally, let’s save in a dictionary for all the samples the requirements mentioned above as follows:</p>
