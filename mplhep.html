@@ -347,11 +347,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#let-s-begin">
    Let’s begin!
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#stacking-histograms-and-adding-the-cms-logo">
@@ -366,28 +361,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solution-don-t-look-before-trying-yourself">
-   Solution (don’t look before trying yourself)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#putting-it-all-together">
    Putting it all together
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bonus-question-how-can-something-that-seems-to-have-a-mass-of-roughly-125-gev-decay-via-two-z-bosons-with-mass-over-90-gev">
-   Bonus question: how can something, that seems to have a mass of roughly 125 GeV decay via two Z bosons, with mass over 90 GeV?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solution">
-   Solution
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#done-we-are-ready-to-publish">
-   Done! We are ready to publish :)
   </a>
  </li>
 </ul>
@@ -423,11 +398,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#let-s-begin">
    Let’s begin!
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#stacking-histograms-and-adding-the-cms-logo">
@@ -442,28 +412,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solution-don-t-look-before-trying-yourself">
-   Solution (don’t look before trying yourself)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#putting-it-all-together">
    Putting it all together
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bonus-question-how-can-something-that-seems-to-have-a-mass-of-roughly-125-gev-decay-via-two-z-bosons-with-mass-over-90-gev">
-   Bonus question: how can something, that seems to have a mass of roughly 125 GeV decay via two Z bosons, with mass over 90 GeV?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solution">
-   Solution
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#done-we-are-ready-to-publish">
-   Done! We are ready to publish :)
   </a>
  </li>
 </ul>
@@ -578,13 +528,11 @@ All the material is being used directly from this <a class="reference external" 
 </div>
 <p>This would plot the following figure.</p>
 <p><img alt="" src="_images/zz.png" /></p>
-</section>
-<section id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
-<p>Plot each of the backgrounds individually. You should have something similar to
-<img alt="" src="_images/drellyan.png" />
-<img alt="" src="_images/ttbar.png" />
-{: .challenge}</p>
+<div class="admonition-plot-each-of-the-backgrounds-individually-you-should-have-something-similar-to admonition">
+<p class="admonition-title">Plot each of the backgrounds individually. You should have something similar to</p>
+<p><img alt="" src="_images/drellyan.png" />
+<img alt="" src="_images/ttbar.png" /></p>
+</div>
 <section id="stacking-histograms-and-adding-the-cms-logo">
 <h3>Stacking histograms and adding the CMS logo.<a class="headerlink" href="#stacking-histograms-and-adding-the-cms-logo" title="Permalink to this headline">#</a></h3>
 <p>Let’s stack them together and see what kind of shape we might expect from the experiment.
@@ -607,41 +555,39 @@ You can define both errors along the x and the y axis as python lists and add th
 </pre></div>
 </div>
 <p><strong>Remember</strong> : Google is your friend.</p>
-</section>
-</section>
-<section id="solution-don-t-look-before-trying-yourself">
-<h2>Solution (don’t look before trying yourself)<a class="headerlink" href="#solution-don-t-look-before-trying-yourself" title="Permalink to this headline">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution (don’t look before trying yourself)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">xerrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nbins</span><span class="p">)]</span>
 <span class="n">yerrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">hist</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">hep</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
-   <span class="p">[</span><span class="n">ttbar</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">zz</span><span class="p">],</span>
-   <span class="n">stack</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-   <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
-   <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span>
-   <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
-   <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-   <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-   <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s2">&quot;$t\bar</span><span class="si">{t}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="s2">&quot;Z/$\gamma^{*}$ + X&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;ZZ $\rightarrow$ 4l&quot;</span><span class="p">],</span>
-   <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="p">[</span><span class="n">ttbar</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">zz</span><span class="p">],</span>
+    <span class="n">stack</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+    <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s2">&quot;$t\bar</span><span class="si">{t}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="s2">&quot;Z/$\gamma^{*}$ + X&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;ZZ $\rightarrow$ 4l&quot;</span><span class="p">],</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
 <span class="p">)</span>
 
 <span class="c1"># Measured data</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span>
-   <span class="n">center</span><span class="p">,</span>
-   <span class="n">hist</span><span class="p">,</span>
-   <span class="n">xerr</span><span class="o">=</span><span class="n">xerrs</span><span class="p">,</span>
-   <span class="n">yerr</span><span class="o">=</span><span class="n">yerrs</span><span class="p">,</span>
-   <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span>
-   <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-   <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
-   <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span>
+    <span class="n">center</span><span class="p">,</span>
+    <span class="n">hist</span><span class="p">,</span>
+    <span class="n">xerr</span><span class="o">=</span><span class="n">xerrs</span><span class="p">,</span>
+    <span class="n">yerr</span><span class="o">=</span><span class="n">yerrs</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span>
 <span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
-   <span class="s2">&quot;$ \sqrt</span><span class="si">{s}</span><span class="s2"> = 7$ TeV, L = 2.3 $fb^{-1}$; $\sqrt</span><span class="si">{s}</span><span class="s2"> = 8$ TeV, L = 11.6 $fb^{-1}$ </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
-   <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="s2">&quot;$ \sqrt</span><span class="si">{s}</span><span class="s2"> = 7$ TeV, L = 2.3 $fb^{-1}$; $\sqrt</span><span class="si">{s}</span><span class="s2"> = 8$ TeV, L = 11.6 $fb^{-1}$ </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$m_</span><span class="si">{4l}</span><span class="s2">$ (GeV)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Events / 3 GeV</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
@@ -653,8 +599,9 @@ You can define both errors along the x and the y axis as python lists and add th
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="_images/background+data.png" />
-{: .solution}</p>
+<p><img alt="" src="_images/background+data.png" /></p>
+</div>
+</section>
 </section>
 <section id="putting-it-all-together">
 <h2>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">#</a></h2>
@@ -687,55 +634,49 @@ You can define both errors along the x and the y axis as python lists and add th
 </pre></div>
 </div>
 <p><img alt="" src="_images/hzz.png" /></p>
-<p>{: .solution}</p>
-<p><img alt="" src="_images/final-plot.png" /></p>
-</section>
-<section id="bonus-question-how-can-something-that-seems-to-have-a-mass-of-roughly-125-gev-decay-via-two-z-bosons-with-mass-over-90-gev">
-<h2>Bonus question: how can something, that seems to have a mass of roughly 125 GeV decay via two Z bosons, with mass over 90 GeV?<a class="headerlink" href="#bonus-question-how-can-something-that-seems-to-have-a-mass-of-roughly-125-gev-decay-via-two-z-bosons-with-mass-over-90-gev" title="Permalink to this headline">#</a></h2>
-<p>Add that graph with all background + data and see how it lines up.
-{: .challenge}</p>
-</section>
-<section id="solution">
-<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Bonus question: how can something, that seems to have a mass of roughly 125 GeV decay via two Z bosons, with mass over 90 GeV? Add that graph with all background + data and see how it lines up.</p>
+<div class="admonition-solution admonition">
+<p class="admonition-title">Solution</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
 <span class="n">xerrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nbins</span><span class="p">)]</span>
 <span class="n">yerrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">hist</span><span class="p">)</span>
 
 <span class="n">hep</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
-   <span class="p">[</span><span class="n">ttbar</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">zz</span><span class="p">,</span> <span class="n">hzz</span><span class="p">],</span>
-   <span class="n">stack</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-   <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
-   <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span>
-   <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">],</span>
-   <span class="n">alpha</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-   <span class="n">edgecolor</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">],</span>
-   <span class="n">label</span><span class="o">=</span><span class="p">[</span>
-       <span class="sa">r</span><span class="s2">&quot;$t\bar</span><span class="si">{t}</span><span class="s2">$&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;Z/$\gamma^{*}$ + X&quot;</span><span class="p">,</span>
-       <span class="sa">r</span><span class="s2">&quot;ZZ $\rightarrow$ 4l&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;$m_</span><span class="si">{H}</span><span class="s2">$ = 125 GeV&quot;</span><span class="p">,</span>
-   <span class="p">],</span>
-   <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="p">[</span><span class="n">ttbar</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">zz</span><span class="p">,</span> <span class="n">hzz</span><span class="p">],</span>
+    <span class="n">stack</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+    <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">],</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="p">[</span>
+        <span class="sa">r</span><span class="s2">&quot;$t\bar</span><span class="si">{t}</span><span class="s2">$&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Z/$\gamma^{*}$ + X&quot;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s2">&quot;ZZ $\rightarrow$ 4l&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;$m_</span><span class="si">{H}</span><span class="s2">$ = 125 GeV&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
 <span class="p">)</span>
 
 <span class="n">hep</span><span class="o">.</span><span class="n">cms</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">rlabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 
 <span class="c1"># Measured data</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span>
-   <span class="n">center</span><span class="p">,</span>
-   <span class="n">hist</span><span class="p">,</span>
-   <span class="n">xerr</span><span class="o">=</span><span class="n">xerrs</span><span class="p">,</span>
-   <span class="n">yerr</span><span class="o">=</span><span class="n">yerrs</span><span class="p">,</span>
-   <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span>
-  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-   <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
-   <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span>
+    <span class="n">center</span><span class="p">,</span>
+    <span class="n">hist</span><span class="p">,</span>
+    <span class="n">xerr</span><span class="o">=</span><span class="n">xerrs</span><span class="p">,</span>
+    <span class="n">yerr</span><span class="o">=</span><span class="n">yerrs</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span>
+   <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span>
 <span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
-   <span class="s2">&quot;$ \sqrt</span><span class="si">{s}</span><span class="s2"> = 7$ TeV, L = 2.3 $fb^{-1}$; $\sqrt</span><span class="si">{s}</span><span class="s2"> = 8$ TeV, L = 11.6 $fb^{-1}$ </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
-   <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="s2">&quot;$ \sqrt</span><span class="si">{s}</span><span class="s2"> = 7$ TeV, L = 2.3 $fb^{-1}$; $\sqrt</span><span class="si">{s}</span><span class="s2"> = 8$ TeV, L = 11.6 $fb^{-1}$ </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$m_</span><span class="si">{4l}</span><span class="s2">$ (GeV)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Events / 3 GeV</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
@@ -747,10 +688,13 @@ You can define both errors along the x and the y axis as python lists and add th
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</section>
-<section id="done-we-are-ready-to-publish">
-<h2>Done! We are ready to publish :)<a class="headerlink" href="#done-we-are-ready-to-publish" title="Permalink to this headline">#</a></h2>
-<p>{% include <a class="reference external" href="http://links.md">links.md</a> %}</p>
+<p><img alt="" src="_images/final-plot.png" /></p>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Done!</p>
+<p>We are ready to publish :)</p>
+</div>
 </section>
 </section>
 
